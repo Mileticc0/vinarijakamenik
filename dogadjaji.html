@@ -17,10 +17,9 @@
 <link rel="alternate" hreflang="en" href="https://kamenik.rs/en/dogadjaji.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
 <meta property="og:title" content="Događaji – Vinarija Kamenik"><meta property="og:description" content="Kalendar događaja u podrumu i vinogradu.">
-<meta property="og:url" content="https://kamenik.rs/dogadjaji.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-zdravica.webp">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Događaji – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-zdravica.webp">
+<meta property="og:url" content="https://kamenik.rs/dogadjaji.html"><meta property="og:image" content="https://kamenik.rs/slike/degustacija-zdravica.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Događaji – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/slike/degustacija-zdravica.webp">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preload" as="image" href="uploads/kamenik_slike/degustacija-zdravica.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
 <script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -44,7 +43,7 @@ input,select,textarea{font-size:16px}
 </helmet>
 <dc-import name="KamenikNav" active="dogadjaji" hint-size="100%,0px"></dc-import>
 <main id="main">
-<dc-import name="KamenikHero" image="uploads/kamenik_slike/degustacija-zdravica.webp" w="2000" hh="1333" alt="Gosti nazdravljaju čašama crnog vina" crumb="Događaji" crumb-en="Events" title="Večeri koje se pamte" title-en="Evenings to remember" gold="2" sub="Muzika pod kamenim svodom, večeri jedne sorte, berba sa decom i zdravica na Trifundan. Mesta je malo – prijavite se na vreme." sub-en="Music under the stone vault, single-variety evenings, harvest with the kids and a toast on St Tryphon’s Day. Places are few – sign up early." height="70svh" hint-size="100%,70svh"></dc-import>
+<dc-import name="KamenikHero" image="slike/degustacija-zdravica.webp" w="2000" hh="1333" alt="Gosti nazdravljaju čašama crnog vina" crumb="Događaji" crumb-en="Events" title="Večeri koje se pamte" title-en="Evenings to remember" gold="2" sub="Muzika pod kamenim svodom, večeri jedne sorte, berba sa decom i zdravica na Trifundan. Mesta je malo – prijavite se na vreme." sub-en="Music under the stone vault, single-variety evenings, harvest with the kids and a toast on St Tryphon’s Day. Places are few – sign up early." height="70svh" hint-size="100%,70svh"></dc-import>
 
 <section aria-labelledby="kal-h" style="background:#F6F3EE">
   <div style="max-width:1320px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(20px,4vw,48px) clamp(88px,11vw,150px);box-sizing:border-box">
@@ -192,7 +191,7 @@ class Component extends DCLogic {
     return {
       months: ms.map(m => ({ label: en ? m[2] : m[1], on: s.month === m[0] ? 'true' : 'false', onClick: () => this.setState({ month: m[0] }),
         bg: s.month === m[0] ? '#4A1626' : 'transparent', color: s.month === m[0] ? '#F6F3EE' : '#1F1A17', bd: s.month === m[0] ? '#4A1626' : 'rgba(31,26,23,.2)' })),
-      list: list.map(e => ({ id: e.id, img: `uploads/kamenik_slike/${e.img}.webp`, title: e.t[i], desc: e.d[i], day: e.date.slice(8), mon: this.mon[e.m][2],
+      list: list.map(e => ({ id: e.id, img: `slike/${e.img}.webp`, title: e.t[i], desc: e.d[i], day: e.date.slice(8), mon: this.mon[e.m][2],
         meta: `${e.time} · ${e.p[i]}`, priceL: e.price ? e.price.toLocaleString('de-DE') + ' RSD' : (en ? 'Free' : 'Besplatno'), open: () => this.openEv(e.id) })),
       empty: !list.length, signUp: en ? 'Sign up' : 'Prijavi se',
       cols: n ? '1fr' : '220px 1fr auto', imgRatio: n ? '16/9' : '1/1', ctaDir: n ? 'row' : 'column', ctaAlign: n ? 'center' : 'flex-end',

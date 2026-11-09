@@ -17,10 +17,9 @@
 <link rel="alternate" hreflang="en" href="https://kamenik.rs/en/galerija.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
 <meta property="og:title" content="Galerija – Vinarija Kamenik"><meta property="og:description" content="Vinograd, podrum, degustacije i događaji.">
-<meta property="og:url" content="https://kamenik.rs/galerija.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/podrum-tunel.webp">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Galerija – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/podrum-tunel.webp">
+<meta property="og:url" content="https://kamenik.rs/galerija.html"><meta property="og:image" content="https://kamenik.rs/slike/podrum-tunel.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Galerija – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/slike/podrum-tunel.webp">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preload" as="image" href="uploads/kamenik_slike/podrum-tunel.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
 <script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -37,7 +36,7 @@ a{color:#4A1626;text-decoration:none}a:hover{color:#5E6B3A}img{max-width:100%}::
 </helmet>
 <dc-import name="KamenikNav" active="galerija" hint-size="100%,0px"></dc-import>
 <main id="main">
-<dc-import name="KamenikHero" image="uploads/kamenik_slike/podrum-tunel.webp" w="2000" hh="1334" alt="Svod kamenog podruma sa velikim hrastovim buradima" crumb="Galerija" crumb-en="Gallery" title="Kamenik u kadrovima" title-en="Kamenik in frames" gold="1" sub="Godina na padini, u podrumu i za stolom – onako kako je mi vidimo." sub-en="A year on the slope, in the cellar and at the table – the way we see it." height="64svh" hint-size="100%,64svh"></dc-import>
+<dc-import name="KamenikHero" image="slike/podrum-tunel.webp" w="2000" hh="1334" alt="Svod kamenog podruma sa velikim hrastovim buradima" crumb="Galerija" crumb-en="Gallery" title="Kamenik u kadrovima" title-en="Kamenik in frames" gold="1" sub="Godina na padini, u podrumu i za stolom – onako kako je mi vidimo." sub-en="A year on the slope, in the cellar and at the table – the way we see it." height="64svh" hint-size="100%,64svh"></dc-import>
 
 <section aria-labelledby="gal-h" style="background:#F6F3EE">
   <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,48px) clamp(88px,11vw,150px);box-sizing:border-box">
@@ -125,22 +124,22 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener('keydown', this.onKey); this.off && this.off(); }
   componentDidUpdate() { window.Kamenik && window.Kamenik.applyLang(); }
   list() { return this.photos.filter(p => this.state.cat === 'sve' || p[1] === this.state.cat); }
-  preload(i) { const l = this.list(); [i - 1, i + 1].forEach(k => { const p = l[(k + l.length) % l.length]; if (p) { const im = new Image(); im.src = `uploads/kamenik_slike/${p[0]}.webp`; } }); }
+  preload(i) { const l = this.list(); [i - 1, i + 1].forEach(k => { const p = l[(k + l.length) % l.length]; if (p) { const im = new Image(); im.src = `slike/${p[0]}.webp`; } }); }
   open(i) { this.lastFocus = document.activeElement; this.setState({ idx: i }); this.preload(i); this.K && this.K.lock(true); }
   closeLb() { this.setState({ idx: -1 }); this.K && this.K.lock(false); this.lastFocus && this.lastFocus.focus && this.lastFocus.focus({ preventScroll: true }); }
   go(d) { const n = this.list().length; const i = (this.state.idx + d + n) % n; this.setState({ idx: i }); this.preload(i); }
   renderVals() {
     const s = this.state, en = s.lang === 'en', l = this.list();
-    const items = l.map((p, i) => ({ src: `uploads/kamenik_slike/${p[0]}.webp`, w: p[2], h: p[3], alt: en ? p[5] : p[4], aria: (en ? 'Open photo: ' : 'Otvori fotografiju: ') + (en ? p[5] : p[4]),
+    const items = l.map((p, i) => ({ src: `slike/${p[0]}.webp`, w: p[2], h: p[3], alt: en ? p[5] : p[4], aria: (en ? 'Open photo: ' : 'Otvori fotografiju: ') + (en ? p[5] : p[4]),
       r: i % 5 === 1 ? (s.narrow ? '999px 999px 14px 14px' : '999px 999px 18px 18px') : (s.narrow ? '14px' : '18px'), open: () => this.open(i) }));
     const c = l[Math.max(0, s.idx)] || this.photos[0], open = s.idx >= 0;
     return {
       filters: this.cats.map(k => ({ label: en ? k[2] : k[1], on: s.cat === k[0] ? 'true' : 'false', onClick: () => this.setState({ cat: k[0], idx: -1 }),
         bg: s.cat === k[0] ? '#4A1626' : 'transparent', color: s.cat === k[0] ? '#F6F3EE' : '#1F1A17', bd: s.cat === k[0] ? '#4A1626' : 'rgba(31,26,23,.2)' })),
       gap: s.narrow ? '10px' : '18px', items, countL: `${l.length} ${en ? 'photos' : (l.length % 10 >= 2 && l.length % 10 <= 4 && (l.length < 10 || l.length > 20) ? 'fotografije' : 'fotografija')}`,
-      cur: { src: `uploads/kamenik_slike/${c[0]}.webp`, w: c[2], h: c[3], alt: en ? c[5] : c[4] },
+      cur: { src: `slike/${c[0]}.webp`, w: c[2], h: c[3], alt: en ? c[5] : c[4] },
       counter: `${Math.max(0, s.idx) + 1} / ${l.length}`,
-      lbImg: el => { if (el && open) { const u = `uploads/kamenik_slike/${c[0]}.webp`; if (el.getAttribute('src') !== u) el.setAttribute('src', u); } },
+      lbImg: el => { if (el && open) { const u = `slike/${c[0]}.webp`; if (el.getAttribute('src') !== u) el.setAttribute('src', u); } },
       lbOpen: open, lbHidden: open ? 'false' : 'true', lbOp: open ? 1 : 0, lbVis: open ? 'visible' : 'hidden',
       lbTr: open ? 'opacity 200ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 0s' : 'opacity 200ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 200ms',
       closeLb: () => this.closeLb(), prev: () => this.go(-1), next: () => this.go(1),

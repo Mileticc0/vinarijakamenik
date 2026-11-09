@@ -17,8 +17,8 @@
 <link rel="alternate" hreflang="en" href="https://kamenik.rs/en/price.html">
 <meta property="og:type" content="blog"><meta property="og:site_name" content="Vinarija Kamenik">
 <meta property="og:title" content="Priče – Vinarija Kamenik"><meta property="og:description" content="Zapisi iz vinograda i podruma.">
-<meta property="og:url" content="https://kamenik.rs/price.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/sommelier.webp">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Priče – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/sommelier.webp">
+<meta property="og:url" content="https://kamenik.rs/price.html"><meta property="og:image" content="https://kamenik.rs/slike/sommelier.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Priče – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/slike/sommelier.webp">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
@@ -27,7 +27,7 @@
 <script defer="" src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer="" src="kamenik-core.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Početna","item":"https://kamenik.rs/"},{"@type":"ListItem","position":2,"name":"Priče","item":"https://kamenik.rs/price.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Tamjanika: sorta koja miriše na leto","datePublished":"2026-10-28","dateModified":"2026-10-28","author":{"@type":"Person","name":"Ana Petrović"},"publisher":{"@type":"Organization","name":"Vinarija Kamenik","logo":{"@type":"ImageObject","url":"https://kamenik.rs/favicon.svg"}},"image":"https://kamenik.rs/uploads/kamenik_slike/sommelier.webp","mainEntityOfPage":"https://kamenik.rs/price.html#tamjanika","inLanguage":"sr"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Tamjanika: sorta koja miriše na leto","datePublished":"2026-10-28","dateModified":"2026-10-28","author":{"@type":"Person","name":"Ana Petrović"},"publisher":{"@type":"Organization","name":"Vinarija Kamenik","logo":{"@type":"ImageObject","url":"https://kamenik.rs/favicon.svg"}},"image":"https://kamenik.rs/slike/sommelier.webp","mainEntityOfPage":"https://kamenik.rs/price.html#tamjanika","inLanguage":"sr"}</script>
 <style>
 html{-webkit-text-size-adjust:100%}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
 body{margin:0;background:#F6F3EE;color:#1F1A17;font-family:'Urbanist',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
@@ -38,7 +38,7 @@ a{color:#4A1626;text-decoration:none}a:hover{color:#5E6B3A}img{max-width:100%}::
 <dc-import name="KamenikNav" active="price" hint-size="100%,0px"></dc-import>
 <main id="main">
 <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
-  <dc-import name="KamenikHero" image="uploads/kamenik_slike/vinograd-lisce.webp" w="2000" hh="1334" alt="Lišće vinove loze u zalasku sunca" crumb="Priče" crumb-en="Stories" title="Zapisi iz podruma" title-en="Notes from the cellar" gold="1" sub="Šta se dešava u vinogradu, zašto vino miriše kako miriše i šta da skuvate uz njega. Pišemo kad imamo šta da kažemo." sub-en="What happens in the vineyard, why wine smells the way it does and what to cook with it. We write when we have something to say." height="64svh" hint-size="100%,64svh"></dc-import>
+  <dc-import name="KamenikHero" image="slike/vinograd-lisce.webp" w="2000" hh="1334" alt="Lišće vinove loze u zalasku sunca" crumb="Priče" crumb-en="Stories" title="Zapisi iz podruma" title-en="Notes from the cellar" gold="1" sub="Šta se dešava u vinogradu, zašto vino miriše kako miriše i šta da skuvate uz njega. Pišemo kad imamo šta da kažemo." sub-en="What happens in the vineyard, why wine smells the way it does and what to cook with it. We write when we have something to say." height="64svh" hint-size="100%,64svh"></dc-import>
   <section aria-label="Članci" style="background:#F6F3EE">
     <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,110px) clamp(20px,4vw,48px) clamp(88px,11vw,150px);box-sizing:border-box">
       <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(56px,7vw,96px)">
@@ -192,7 +192,7 @@ class Component extends DCLogic {
   }
   card(p, en, k) {
     const i = en ? 1 : 0;
-    return { id: p.id, href: '#' + p.id, title: p.t[i], ex: p.ex[i], img: `uploads/kamenik_slike/${p.img}.webp`, alt: p.t[i], iso: p.iso, date: this.fmt(p.iso, en),
+    return { id: p.id, href: '#' + p.id, title: p.t[i], ex: p.ex[i], img: `slike/${p.img}.webp`, alt: p.t[i], iso: p.iso, date: this.fmt(p.iso, en),
       read: `${p.min} min ${en ? 'read' : 'čitanja'}`, author: p.author, r: k % 3 === 1 ? '999px 999px 18px 18px' : '18px', open: e => this.go(p.id, e) };
   }
   renderVals() {

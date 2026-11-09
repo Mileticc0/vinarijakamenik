@@ -17,8 +17,8 @@
 <link rel="alternate" hreflang="en" href="https://kamenik.rs/en/vino.html">
 <meta property="og:type" content="product"><meta property="og:site_name" content="Vinarija Kamenik">
 <meta property="og:title" content="Vino – Vinarija Kamenik"><meta property="og:description" content="Vina sa kamenih padina Fruške gore.">
-<meta property="og:url" content="https://kamenik.rs/vino.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/boca-casa.webp">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vino – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/boca-casa.webp">
+<meta property="og:url" content="https://kamenik.rs/vino.html"><meta property="og:image" content="https://kamenik.rs/slike/boca-casa.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vino – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/slike/boca-casa.webp">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
@@ -167,7 +167,7 @@ class Component extends DCLogic {
     if (!s) { s = document.createElement('script'); s.type = 'application/ld+json'; s.id = 'ld-product'; document.head.appendChild(s); }
     s.textContent = JSON.stringify([
       { '@context': 'https://schema.org', '@type': 'Product', name: `${w.name} ${w.year}`, brand: { '@type': 'Brand', name: 'Vinarija Kamenik' }, description: w.desc.sr, category: w.type.sr,
-        image: 'https://kamenik.rs/uploads/kamenik_slike/boca-casa.webp', url: `https://kamenik.rs/vino.html?vino=${w.slug}`,
+        image: 'https://kamenik.rs/slike/boca-casa.webp', url: `https://kamenik.rs/vino.html?vino=${w.slug}`,
         offers: { '@type': 'Offer', price: String(w.price), priceCurrency: 'RSD', availability: 'https://schema.org/InStock', seller: { '@type': 'Organization', name: 'Vinarija Kamenik' } } },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Početna', item: 'https://kamenik.rs/' },

@@ -17,10 +17,9 @@
 <link rel="alternate" hreflang="en" href="https://kamenik.rs/en/degustacije.html">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
 <meta property="og:title" content="Degustacije – Vinarija Kamenik"><meta property="og:description" content="Tri paketa degustacije u kamenom podrumu i vinogradu.">
-<meta property="og:url" content="https://kamenik.rs/degustacije.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-sto.webp">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Degustacije – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-sto.webp">
+<meta property="og:url" content="https://kamenik.rs/degustacije.html"><meta property="og:image" content="https://kamenik.rs/slike/degustacija-sto.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Degustacije – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/slike/degustacija-sto.webp">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preload" as="image" href="uploads/kamenik_slike/degustacija-sto.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
 <script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -42,7 +41,7 @@ input,select,textarea{font-size:16px}
 </helmet>
 <dc-import name="KamenikNav" active="degustacije" hint-size="100%,0px"></dc-import>
 <main id="main">
-<dc-import name="KamenikHero" image="uploads/kamenik_slike/degustacija-sto.webp" w="2000" hh="1125" alt="Točenje belog vina za stolom tokom degustacije" crumb="Degustacije" crumb-en="Tastings" title="Mesto za našim stolom" title-en="A seat at our table" gold="2" sub="Svaku degustaciju vodi neko iz porodice. Sipamo, pričamo, šetamo kroz podrum – a vi samo birate koliko dugo ostajete." sub-en="Every tasting is led by someone from the family. We pour, talk and walk you through the cellar – you just decide how long to stay." height="74svh" hint-size="100%,74svh"></dc-import>
+<dc-import name="KamenikHero" image="slike/degustacija-sto.webp" w="2000" hh="1125" alt="Točenje belog vina za stolom tokom degustacije" crumb="Degustacije" crumb-en="Tastings" title="Mesto za našim stolom" title-en="A seat at our table" gold="2" sub="Svaku degustaciju vodi neko iz porodice. Sipamo, pričamo, šetamo kroz podrum – a vi samo birate koliko dugo ostajete." sub-en="Every tasting is led by someone from the family. We pour, talk and walk you through the cellar – you just decide how long to stay." height="74svh" hint-size="100%,74svh"></dc-import>
 
 <section aria-labelledby="pak-h" style="background:#F6F3EE">
   <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box">
@@ -268,7 +267,7 @@ class Component extends DCLogic {
     const pick = id => { this.set('paket', id); this.K && this.K.scrollTo('#rezervacija'); };
     const p = this.packData.find(x => x.id === f.paket);
     return {
-      packs: this.packData.map((x, k) => ({ name: x.name[i], meta: x.meta[i], inc: x.inc.map(t => t[i]), img: `uploads/kamenik_slike/${x.img}.webp`, alt: x.alt[i], priceL: fmt(x.price), per: en ? 'RSD / person' : 'RSD / osoba',
+      packs: this.packData.map((x, k) => ({ name: x.name[i], meta: x.meta[i], inc: x.inc.map(t => t[i]), img: `slike/${x.img}.webp`, alt: x.alt[i], priceL: fmt(x.price), per: en ? 'RSD / person' : 'RSD / osoba',
         bg: x.dark ? '#4A1626' : '#E9E4DA', fg: x.dark ? '#F6F3EE' : '#1F1A17', acc: x.dark ? '#D9B45B' : '#5E6B3A', price: x.dark ? '#D9B45B' : '#A8822F', line: x.dark ? 'rgba(246,243,238,.16)' : 'rgba(31,26,23,.12)',
         btnBg: x.dark ? '#D9B45B' : '#4A1626', btnFg: x.dark ? '#1F1A17' : '#F6F3EE', btn: en ? 'Choose' : 'Izaberi', r: k === 1 ? '999px 999px 18px 18px' : '18px', choose: () => pick(x.id) })),
       included: this.incData.map((u, k) => ({ n: '0' + (k + 1), t: u[i], d: u[2 + i] })),
