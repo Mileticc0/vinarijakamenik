@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mapa – Vinarija Kamenik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Urbanist:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<style>
+html,body,#map{margin:0;height:100%;width:100%}
+body{background:#E9E4DA;font-family:'Urbanist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.leaflet-container{background:#E9E4DA;font-family:'Urbanist',system-ui,sans-serif}
+.leaflet-tile-pane{filter:grayscale(1) sepia(.55) saturate(1.35) hue-rotate(-12deg) brightness(1.04) contrast(.92)}
+.leaflet-overlay-pane,.leaflet-marker-pane,.leaflet-popup-pane{filter:none}
+.tint{position:absolute;inset:0;z-index:250;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,rgba(246,243,238,0) 40%,rgba(74,22,38,.18) 100%);mix-blend-mode:multiply}
+.leaflet-control-zoom{border:0!important;box-shadow:0 8px 24px rgba(31,26,23,.18)!important;border-radius:999px!important;overflow:hidden}
+.leaflet-control-zoom a{width:44px!important;height:44px!important;line-height:44px!important;background:#F6F3EE!important;color:#4A1626!important;border:0!important;font:400 22px/44px Urbanist,sans-serif!important}
+.leaflet-control-zoom a:first-child{border-bottom:1px solid rgba(31,26,23,.1)!important}
+.leaflet-control-zoom a:hover{background:#E9E4DA!important}
+.leaflet-control-attribution{background:rgba(246,243,238,.85)!important;color:#5E6B3A!important;font-size:10px!important;border-radius:8px 0 0 0}
+.leaflet-control-attribution a{color:#4A1626!important}
+.pin{position:relative;width:64px;height:78px}
+.pin .drop{position:absolute;left:8px;top:0;width:48px;height:48px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#4A1626;box-shadow:0 10px 24px rgba(74,22,38,.45);border:2px solid #D9B45B;box-sizing:border-box}
+.pin svg{position:absolute;left:19px;top:10px;width:26px;height:26px}
+.pin .pulse{position:absolute;left:22px;top:62px;width:20px;height:8px;border-radius:50%;background:rgba(74,22,38,.35)}
+.pin .ring{position:absolute;left:12px;top:56px;width:40px;height:20px;border-radius:50%;border:1.5px solid #D9B45B;animation:ring 2.4s cubic-bezier(.23,1,.32,1) infinite;opacity:0}
+@keyframes ring{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+.town{font-family:'Bellefair',serif;font-size:17px;color:#4A1626;white-space:nowrap;text-shadow:0 0 3px #F6F3EE,0 0 6px #F6F3EE,0 0 10px #F6F3EE;letter-spacing:.02em}
+.town small{display:block;font-family:'Urbanist',sans-serif;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5E6B3A}
+.town i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4A1626;border:1.5px solid #F6F3EE;margin-right:6px;vertical-align:middle}
+.leaflet-popup-content-wrapper{border-radius:20px;background:#F6F3EE;color:#1F1A17;box-shadow:0 18px 40px rgba(31,26,23,.25)}
+.leaflet-popup-tip{background:#F6F3EE}
+.leaflet-popup-content{margin:18px 20px;line-height:1.5}
+.pp h3{margin:0;font-family:'Bellefair',serif;font-weight:400;font-size:26px;line-height:1.05;color:#4A1626}
+.pp p{margin:6px 0 0;font-size:14px;color:rgba(31,26,23,.8)}
+.pp .h{margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#5E6B3A}
+.pp a.btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;height:42px;padding:0 18px;border-radius:999px;background:#D9B45B;color:#1F1A17!important;font-weight:600;font-size:14px;text-decoration:none}
+.card{position:absolute;left:14px;bottom:14px;z-index:500;display:flex;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:999px;background:rgba(74,22,38,.92);color:#F6F3EE;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(31,26,23,.3);max-width:calc(100% - 28px);box-sizing:border-box}
+.card b{font-family:'Bellefair',serif;font-weight:400;font-size:19px;line-height:1.1;display:block}
+.card span{font-size:12px;color:rgba(246,243,238,.75)}
+.card a{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:999px;background:#D9B45B;color:#1F1A17;font-weight:600;font-size:13px;text-decoration:none}
+.card a:active{transform:scale(.97)}
+body.mini .card,body.mini .leaflet-control-zoom,body.mini .town{display:none}
+body.mini .card.minicard{display:flex;left:8px;bottom:8px;padding:6px 6px 6px 12px}
+body.mini .card.minicard b{font-size:15px}
+body.mini .card.minicard a{height:32px;padding:0 12px;font-size:12px}
+@media (max-width:420px){.card{left:8px;right:8px;bottom:8px;padding:8px 8px 8px 14px}.card b{font-size:17px}}
+</style>
+</head>
+<body>
+<div id="map" role="region" aria-label="Mapa: Vinarija Kamenik, Sremski Karlovci"></div>
+<div class="tint"></div>
+<div class="card" id="card">
+  <div style="min-width:0"><b>Vinarija Kamenik</b><span id="addr">Vinogradarska 14 · Sremski Karlovci</span></div>
+  <a id="dir" href="https://www.google.com/maps/dir/?api=1&destination=45.2003,19.9336" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8l12-6-6 12-1.5-4.5z"/></svg><span id="dirL" style="color:#1F1A17;font-size:13px">Putanja</span>
+  </a>
+</div>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search), mini = q.get('mini') === '1';
+  var en = false; try { en = localStorage.getItem('kamenik-lang') === 'en'; } catch(e){}
+  if (mini) { document.body.classList.add('mini'); document.getElementById('card').classList.add('minicard'); }
+  if (en) { document.getElementById('dirL').textContent = 'Directions'; document.documentElement.lang = 'en'; }
+  var W = [45.2003, 19.9336];
+  var map = L.map('map', { center: mini ? W : [45.215, 19.905], zoom: mini ? 12 : 12, zoomControl: !mini, scrollWheelZoom: false, dragging: !mini || !L.Browser.mobile, tap: true, attributionControl: true });
+  if (!mini) map.zoomControl.setPosition('topright');
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap contributors' }).addTo(map);
+  map.on('focus', function(){ map.scrollWheelZoom.enable(); });
+  map.on('blur', function(){ map.scrollWheelZoom.disable(); });
+
+  var grape = '<svg viewBox="0 0 32 32" fill="none" stroke="#D9B45B" stroke-width="1.6" stroke-linecap="round"><path d="M16 3c0 3-1 5-3 6"/><path d="M17 8c3-4 9-4 11-1-2 1-2 4-5 5-2 .5-4.5-1-6-4z"/><circle cx="11" cy="12.5" r="2.6"/><circle cx="16.4" cy="12.5" r="2.6"/><circle cx="8.4" cy="17" r="2.6"/><circle cx="13.7" cy="17" r="2.6"/><circle cx="19" cy="17" r="2.6"/><circle cx="11" cy="21.5" r="2.6"/><circle cx="16.4" cy="21.5" r="2.6"/><circle cx="13.7" cy="26" r="2.6"/></svg>';
+  var icon = L.divIcon({ className: '', html: '<div class="pin"><span class="ring"></span><span class="pulse"></span><span class="drop"></span>' + grape + '</div>', iconSize: [64, 78], iconAnchor: [32, 68], popupAnchor: [0, -62] });
+  var m = L.marker(W, { icon: icon, keyboard: true, title: 'Vinarija Kamenik', alt: 'Vinarija Kamenik' }).addTo(map);
+  var pop = en
+    ? '<div class="pp"><h3>Kamenik Winery</h3><p>Vinogradarska 14, 21205 Sremski Karlovci</p><p class="h">Cellar hours</p><p>Mon–Fri 12–20 h · Sat–Sun 11–22 h</p><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=45.2003,19.9336" target="_blank" rel="noopener">Get directions →</a></div>'
+    : '<div class="pp"><h3>Vinarija Kamenik</h3><p>Vinogradarska 14, 21205 Sremski Karlovci</p><p class="h">Radno vreme podruma</p><p>Pon–Pet 12–20 h · Sub–Ned 11–22 h</p><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=45.2003,19.9336" target="_blank" rel="noopener">Putanja do nas →</a></div>';
+  m.bindPopup(pop, { maxWidth: 280, closeButton: true });
+
+  if (!mini) {
+    var b = L.latLngBounds([W, [45.2671, 19.8335], [45.1350, 20.0790]]);
+    map.fitBounds(b, { padding: [40, 40] });
+  }
+})();
+</script>
+</body>
+</html>

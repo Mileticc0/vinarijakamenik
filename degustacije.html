@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Degustacije vina na Fruškoj gori | Vinarija Kamenik</title>
+<meta name="description" content="Rezervišite degustaciju u Vinariji Kamenik: Klasična, Podrum i sir ili Zalazak u vinogradu sa večerom. Grupe 2–16 osoba, svakog dana uz najavu.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4A1626">
+<link rel="canonical" href="https://kamenik.rs/degustacije.html">
+<link rel="alternate" hreflang="sr" href="https://kamenik.rs/degustacije.html">
+<link rel="alternate" hreflang="en" href="https://kamenik.rs/en/degustacije.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
+<meta property="og:title" content="Degustacije – Vinarija Kamenik"><meta property="og:description" content="Tri paketa degustacije u kamenom podrumu i vinogradu.">
+<meta property="og:url" content="https://kamenik.rs/degustacije.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-sto.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Degustacije – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/degustacija-sto.webp">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="uploads/kamenik_slike/degustacija-sto.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer="" src="kamenik-core.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Početna","item":"https://kamenik.rs/"},{"@type":"ListItem","position":2,"name":"Degustacije","item":"https://kamenik.rs/degustacije.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Da li je rezervacija obavezna?","acceptedAnswer":{"@type":"Answer","text":"Da. Degustacije vodi neko iz porodice, pa nam treba bar 24 sata najave."}},
+{"@type":"Question","name":"Koliko osoba može da dođe?","acceptedAnswer":{"@type":"Answer","text":"Od 2 do 16 osoba. Za veće grupe pišite nam i napravićemo poseban termin."}},
+{"@type":"Question","name":"Mogu li da dođem kolima?","acceptedAnswer":{"@type":"Answer","text":"Imamo besplatan parking. Vozaču nudimo degustaciju za poneti i domaći sok od grožđa."}}]}</script>
+<style>
+html{-webkit-text-size-adjust:100%}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:#F6F3EE;color:#1F1A17;font-family:'Urbanist',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+a{color:#4A1626;text-decoration:none}a:hover{color:#5E6B3A}img{max-width:100%}::selection{background:#D9B45B;color:#1F1A17}:focus-visible{outline:2px solid #D9B45B;outline-offset:3px}
+input,select,textarea{font-size:16px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+<dc-import name="KamenikNav" active="degustacije" hint-size="100%,0px"></dc-import>
+<main id="main">
+<dc-import name="KamenikHero" image="uploads/kamenik_slike/degustacija-sto.webp" w="2000" hh="1125" alt="Točenje belog vina za stolom tokom degustacije" crumb="Degustacije" crumb-en="Tastings" title="Mesto za našim stolom" title-en="A seat at our table" gold="2" sub="Svaku degustaciju vodi neko iz porodice. Sipamo, pričamo, šetamo kroz podrum – a vi samo birate koliko dugo ostajete." sub-en="Every tasting is led by someone from the family. We pour, talk and walk you through the cellar – you just decide how long to stay." height="74svh" hint-size="100%,74svh"></dc-import>
+
+<section aria-labelledby="pak-h" style="background:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box">
+    <h2 id="pak-h" data-rv-h="" style="margin:0 0 clamp(40px,5vw,60px);font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5.4vw,80px);line-height:1.02" data-en="Three ways to taste">Tri načina da probate</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+      <sc-for list="{{ packs }}" as="p" hint-placeholder-count="3">
+        <article data-rv-card="" style="display:flex;flex-direction:column;border-radius:26px;background:{{ p.bg }};color:{{ p.fg }};padding:14px;box-sizing:border-box">
+          <div style="aspect-ratio:4/3;border-radius:{{ p.r }};overflow:hidden"><img src="{{ p.img }}" width="2000" height="1334" alt="{{ p.alt }}" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="display:flex;flex-direction:column;gap:14px;padding:24px 14px 14px;flex:1">
+            <h3 style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:36px;line-height:1.05">{{ p.name }}</h3>
+            <p style="margin:0;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:{{ p.acc }}">{{ p.meta }}</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px">
+              <sc-for list="{{ p.inc }}" as="i" hint-placeholder-count="4"><li style="display:flex;gap:10px;align-items:baseline"><span style="width:6px;height:6px;border-radius:50%;background:#D9B45B;flex-shrink:0;transform:translateY(-2px)"></span><span>{{ i }}</span></li></sc-for>
+            </ul>
+            <div style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid {{ p.line }}">
+              <p style="margin:0;font-family:Bellefair,serif;font-size:42px;line-height:1;color:{{ p.price }}">{{ p.priceL }} <span style="font-family:Urbanist,sans-serif;font-size:13px;color:{{ p.fg }}">{{ p.per }}</span></p>
+              <button type="button" onClick="{{ p.choose }}" style="height:48px;padding:0 22px;border-radius:999px;border:0;background:{{ p.btnBg }};color:{{ p.btnFg }};font:600 15px/1 Urbanist,sans-serif;cursor:pointer" style-active="transform:scale(0.97)">{{ p.btn }}</button>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="ukl-h" style="background:#E9E4DA">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(80px,10vw,130px) clamp(20px,4vw,48px);box-sizing:border-box">
+    <h2 id="ukl-h" data-rv-h="" style="margin:0 0 clamp(36px,4vw,56px);font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:1.02" data-en="Included in every tasting">Uključeno u svaku degustaciju</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0 32px">
+      <sc-for list="{{ included }}" as="u" hint-placeholder-count="4">
+        <div data-rv-card="" style="padding:26px 0;border-top:1px solid rgba(169,130,47,.45)">
+          <p style="margin:0 0 14px;font-family:Bellefair,serif;font-size:22px;color:#A8822F">{{ u.n }}</p>
+          <h3 style="margin:0 0 8px;font-family:Bellefair,serif;font-weight:400;font-size:28px;line-height:1.15">{{ u.t }}</h3>
+          <p style="margin:0;color:rgba(31,26,23,.8)">{{ u.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h" style="background:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,5vw,80px);align-items:start">
+    <div>
+      <h2 id="faq-h" data-rv-h="" style="margin:0 0 18px;font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:1.02" data-en="Questions we hear often">Pitanja koja često čujemo</h2>
+      <p style="margin:0;max-width:36ch;color:rgba(31,26,23,.78)" data-en="Something else on your mind? Call us – we answer between 9 and 20 h.">Imate drugo pitanje? Pozovite nas – javljamo se od 9 do 20 h.</p>
+      <a href="tel:+381641234567" style="margin-top:20px;display:inline-flex;align-items:center;gap:10px;font-weight:600;color:#4A1626;border-bottom:1px solid #D9B45B;padding-bottom:4px">+381 64 123 4567</a>
+    </div>
+    <div style="border-top:1px solid rgba(31,26,23,.14)">
+      <sc-for list="{{ faq }}" as="q" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(31,26,23,.14)">
+          <h3 style="margin:0">
+            <button type="button" onClick="{{ q.toggle }}" aria-expanded="{{ q.exp }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border:0;background:none;text-align:left;cursor:pointer;font-family:Bellefair,serif;font-size:clamp(22px,2vw,27px);line-height:1.2;color:#1F1A17">
+              <span>{{ q.q }}</span>
+              <span style="width:40px;height:40px;flex-shrink:0;border-radius:50%;border:1px solid rgba(31,26,23,.18);display:flex;align-items:center;justify-content:center;transform:rotate({{ q.rot }});transition:transform 240ms cubic-bezier(0.23,1,0.32,1)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#4A1626" stroke-width="1.6" aria-hidden="true"><path d="M7 1v12M1 7h12"></path></svg></span>
+            </button>
+          </h3>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 56px 24px 0;max-width:60ch;color:rgba(31,26,23,.82)">{{ q.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="rezervacija" data-theme="dark" aria-labelledby="rez-h" style="background:#4A1626;color:#F6F3EE;scroll-margin-top:20px">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(36px,5vw,80px);align-items:start">
+    <div>
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#D9B45B" data-en="Reservation">Rezervacija</p>
+      <h2 id="rez-h" data-rv-h="" style="margin:0 0 24px;font-family:Bellefair,serif;font-weight:400;font-size:clamp(44px,5.6vw,88px);line-height:1" data-en="Book your tasting">Rezervišite degustaciju</h2>
+      <p style="margin:0 0 32px;max-width:42ch;color:rgba(246,243,238,.84)" data-en="Send the form and we will confirm by phone the same day. Payment at the cellar, cash or card.">Pošaljite formu i potvrdićemo telefonom istog dana. Plaćanje u podrumu, gotovinom ili karticom.</p>
+      <dl style="display:grid;gap:18px;margin:0">
+        <div><dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9B45B" data-en="Tasting hours">Termini</dt><dd style="margin:4px 0 0" data-en="Every day 12–20 h, Sunset tastings from May to October">Svakog dana 12–20 h, Zalazak od maja do oktobra</dd></div>
+        <div><dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9B45B" data-en="Group size">Veličina grupe</dt><dd style="margin:4px 0 0" data-en="2 to 16 people">Od 2 do 16 osoba</dd></div>
+        <div><dt style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#D9B45B" data-en="Cancellation">Otkazivanje</dt><dd style="margin:4px 0 0" data-en="Free up to 24 h before">Besplatno do 24 h ranije</dd></div>
+      </dl>
+    </div>
+    <div style="border-radius:26px;background:#F6F3EE;color:#1F1A17;padding:clamp(24px,3.4vw,44px);box-sizing:border-box">
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" novalidate="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px">
+          <fieldset style="grid-column:1/-1;margin:0;padding:0;border:0">
+            <legend style="padding:0;margin-bottom:10px;font-size:14px;font-weight:600"><span data-en="Package">Paket</span> <span style="color:#6B2236">*</span></legend>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+              <sc-for list="{{ packOpts }}" as="o" hint-placeholder-count="3">
+                <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="min-height:64px;padding:10px 14px;border-radius:14px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;font-family:Urbanist,sans-serif" style-active="transform:scale(0.97)"><span style="font-weight:600;font-size:15px">{{ o.name }}</span><span style="font-size:13px;opacity:.8">{{ o.priceL }} RSD</span></button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ err.paket }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:6px 0 0;font-size:14px;color:#6B2236">{{ err.paket }}</p></sc-if>
+          </fieldset>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span><span data-en="Date">Datum</span> <span style="color:#6B2236">*</span></span>
+            <input type="date" min="{{ today }}" value="{{ f.datum }}" onChange="{{ on.datum }}" required="" aria-invalid="{{ inv.datum }}" style="height:54px;padding:0 16px;border-radius:14px;border:1px solid {{ bd.datum }};background:#E9E4DA;color:#1F1A17;font:500 16px Urbanist,sans-serif;box-sizing:border-box;width:100%" style-focus="border-color:#4A1626;outline:none">
+            <sc-if value="{{ err.datum }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-weight:500;color:#6B2236">{{ err.datum }}</span></sc-if>
+          </label>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span><span data-en="Guests">Broj osoba</span> <span style="color:#6B2236">*</span></span>
+            <div style="display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 6px;border-radius:14px;background:#E9E4DA;box-sizing:border-box">
+              <button type="button" onClick="{{ dec }}" aria-label="Manje osoba" style="width:44px;height:44px;border-radius:50%;border:0;background:#F6F3EE;font-size:22px;line-height:1;cursor:pointer;color:#4A1626" style-active="transform:scale(0.97)">−</button>
+              <output aria-live="polite" style="font-family:Bellefair,serif;font-size:26px">{{ f.osobe }}</output>
+              <button type="button" onClick="{{ inc }}" aria-label="Više osoba" style="width:44px;height:44px;border-radius:50%;border:0;background:#F6F3EE;font-size:22px;line-height:1;cursor:pointer;color:#4A1626" style-active="transform:scale(0.97)">+</button>
+            </div>
+          </div>
+          <fieldset style="grid-column:1/-1;margin:0;padding:0;border:0">
+            <legend style="padding:0;margin-bottom:10px;font-size:14px;font-weight:600" data-en="Time">Vreme</legend>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ times }}" as="t" hint-placeholder-count="5">
+                <button type="button" onClick="{{ t.pick }}" aria-pressed="{{ t.on }}" style="height:44px;padding:0 18px;border-radius:999px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font:600 15px/1 Urbanist,sans-serif;cursor:pointer" style-active="transform:scale(0.97)">{{ t.t }}</button>
+              </sc-for>
+            </div>
+          </fieldset>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span><span data-en="Name">Ime i prezime</span> <span style="color:#6B2236">*</span></span>
+            <input type="text" autocomplete="name" value="{{ f.ime }}" onChange="{{ on.ime }}" aria-invalid="{{ inv.ime }}" style="height:54px;padding:0 16px;border-radius:14px;border:1px solid {{ bd.ime }};background:#E9E4DA;color:#1F1A17;font:500 16px Urbanist,sans-serif;box-sizing:border-box;width:100%" style-focus="border-color:#4A1626;outline:none">
+            <sc-if value="{{ err.ime }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-weight:500;color:#6B2236">{{ err.ime }}</span></sc-if>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span><span data-en="Phone">Telefon</span> <span style="color:#6B2236">*</span></span>
+            <input type="tel" autocomplete="tel" inputmode="tel" value="{{ f.tel }}" onChange="{{ on.tel }}" aria-invalid="{{ inv.tel }}" placeholder="+381 6x xxx xxxx" style="height:54px;padding:0 16px;border-radius:14px;border:1px solid {{ bd.tel }};background:#E9E4DA;color:#1F1A17;font:500 16px Urbanist,sans-serif;box-sizing:border-box;width:100%" style-focus="border-color:#4A1626;outline:none">
+            <sc-if value="{{ err.tel }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-weight:500;color:#6B2236">{{ err.tel }}</span></sc-if>
+          </label>
+          <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span data-en="Email">E-mail</span>
+            <input type="email" autocomplete="email" value="{{ f.email }}" onChange="{{ on.email }}" aria-invalid="{{ inv.email }}" style="height:54px;padding:0 16px;border-radius:14px;border:1px solid {{ bd.email }};background:#E9E4DA;color:#1F1A17;font:500 16px Urbanist,sans-serif;box-sizing:border-box;width:100%" style-focus="border-color:#4A1626;outline:none">
+            <sc-if value="{{ err.email }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-weight:500;color:#6B2236">{{ err.email }}</span></sc-if>
+          </label>
+          <label style="grid-column:1/-1;display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600"><span data-en="Notes (allergies, occasion)">Napomena (alergije, povod)</span>
+            <textarea rows="3" value="{{ f.nap }}" onChange="{{ on.nap }}" style="padding:14px 16px;border-radius:14px;border:1px solid rgba(31,26,23,.14);background:#E9E4DA;color:#1F1A17;font:500 16px/1.5 Urbanist,sans-serif;resize:vertical;box-sizing:border-box;width:100%" style-focus="border-color:#4A1626;outline:none"></textarea>
+          </label>
+          <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+            <p style="margin:0;font-size:13px;color:rgba(31,26,23,.6)" data-en="* required fields">* obavezna polja</p>
+            <button type="submit" disabled="{{ sending }}" style="position:relative;display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 28px;border-radius:999px;border:0;background:#4A1626;color:#F6F3EE;font:600 15px/1 Urbanist,sans-serif;cursor:pointer;overflow:hidden;opacity:{{ sendOp }}" style-active="transform:scale(0.97)">{{ sendLabel }}</button>
+          </div>
+          <sc-if value="{{ failed }}" hint-placeholder-val="{{ false }}"><p role="alert" style="grid-column:1/-1;margin:0;color:#6B2236">{{ failMsg }}</p></sc-if>
+        </form>
+      </sc-if>
+      <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+        <div data-clink="" role="status" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:40px 0">
+          <div style="position:relative;width:200px;height:140px">
+            <svg data-glass-l="" viewBox="0 0 60 120" style="position:absolute;left:46px;top:14px;width:60px;height:120px;transform-origin:50% 100%;overflow:visible" aria-hidden="true"><path d="M8 4h44c0 26-6 44-22 48C14 48 8 30 8 4z" fill="rgba(217,180,91,.12)" stroke="#D9B45B" stroke-width="1.5"></path><path d="M10.5 22h39c-2.5 14-8.5 24-19.5 26-11-2-17-12-19.5-26z" fill="#6B2236"></path><path d="M30 52v52M16 112h28" stroke="#D9B45B" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <svg data-glass-r="" viewBox="0 0 60 120" style="position:absolute;left:94px;top:14px;width:60px;height:120px;transform-origin:50% 100%;overflow:visible" aria-hidden="true"><path d="M8 4h44c0 26-6 44-22 48C14 48 8 30 8 4z" fill="rgba(217,180,91,.12)" stroke="#D9B45B" stroke-width="1.5"></path><path d="M10.5 22h39c-2.5 14-8.5 24-19.5 26-11-2-17-12-19.5-26z" fill="#D9B45B" opacity=".75"></path><path d="M30 52v52M16 112h28" stroke="#D9B45B" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <svg data-spark="" viewBox="0 0 28 28" style="position:absolute;left:86px;top:0;width:28px;height:28px;opacity:0" aria-hidden="true"><g stroke="#D9B45B" stroke-width="1.6" stroke-linecap="round"><path d="M14 2v6M14 20v6M2 14h6M20 14h6M5.5 5.5l4 4M18.5 18.5l4 4M22.5 5.5l-4 4M9.5 18.5l-4 4"></path></g></svg>
+          </div>
+          <div data-clink-text="">
+            <p style="margin:10px 0 0;font-family:Bellefair,serif;font-size:clamp(40px,4vw,56px);line-height:1;color:#4A1626">{{ okTitle }}</p>
+            <p style="margin:10px 0 0;color:rgba(31,26,23,.8)">{{ okText }}</p>
+            <p style="margin:18px 0 0;font-size:14px;color:#5E6B3A">{{ summary }}</p>
+            <button type="button" onClick="{{ reset }}" style="margin-top:22px;height:46px;padding:0 22px;border-radius:999px;border:1px solid #4A1626;background:transparent;color:#4A1626;font:600 15px/1 Urbanist,sans-serif;cursor:pointer" style-active="transform:scale(0.97)">{{ again }}</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="KamenikFooter" hint-size="100%,900px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'sr', open: 0, f: { paket: '', datum: '', vreme: '16:00', osobe: 2, ime: '', tel: '', email: '', nap: '' }, err: {}, status: 'idle' };
+  packData = [
+    { id: 'klasicna', name: ['Klasična', 'Classic'], price: 1900, img: 'degustacija-sto', alt: ['Točenje vina na degustaciji', 'Pouring wine at a tasting'], meta: ['4 vina · 60 min', '4 wines · 60 min'],
+      inc: [['Tamjanika, grašac, rose, Kamenik Crveni', 'Tamjanika, Grašac, Rosé, Kamenik Red'], ['Domaći hleb i maslinovo ulje', 'Homemade bread and olive oil'], ['Šetnja kroz kameni podrum', 'Walk through the stone cellar']] },
+    { id: 'podrum-i-sir', name: ['Podrum i sir', 'Cellar & cheese'], price: 3400, img: 'plata-sir', alt: ['Plata sireva i suhomesnatog', 'Cheese and charcuterie platter'], meta: ['6 vina + plata · 90 min', '6 wines + platter · 90 min'], dark: true,
+      inc: [['Cela polica, uključujući Rezervu', 'The whole shelf, including the Reserve'], ['Plata sremskih sireva i suhomesnatog', 'Platter of Syrmian cheeses and charcuterie'], ['Degustacija iz bureta', 'Barrel tasting'], ['Boca tamjanike na poklon za 4+ osobe', 'A bottle of Tamjanika for groups of 4+']] },
+    { id: 'zalazak', name: ['Zalazak u vinogradu', 'Sunset in the vineyard'], price: 6900, img: 'vecera', alt: ['Večera uz sveće i vino', 'Candlelit dinner with wine'], meta: ['Vina + večera · 3 h', 'Wines + dinner · 3 h'],
+      inc: [['Sto između redova, maj–oktobar', 'A table between the rows, May–October'], ['Sezonska večera u tri slede', 'Three-course seasonal dinner'], ['Uparivanje sa svih šest vina', 'Pairing with all six wines'], ['Rezerva 2021 uz desert', 'Reserve 2021 with dessert']] }
+  ];
+  incData = [
+    ['Domaćin iz porodice', 'A host from the family', 'Niko vam neće čitati tekst napamet – samo priče iz prve ruke.', 'No scripts – just first-hand stories.'],
+    ['Šetnja vinogradom', 'A vineyard walk', 'Kratka tura kroz redove pre ili posle degustacije.', 'A short walk through the rows before or after.'],
+    ['Voda i hleb', 'Water and bread', 'Izvorska voda i hleb iz seoske pekare, bez ograničenja.', 'Spring water and village bakery bread, unlimited.'],
+    ['−10 % u podrumu', '−10 % in the cellar shop', 'Popust na sve boce koje ponesete kući istog dana.', 'A discount on every bottle you take home that day.']
+  ];
+  faqData = [
+    ['Da li je rezervacija obavezna?', 'Is booking required?', 'Da. Degustacije vodi neko iz porodice, pa nam treba bar 24 sata najave.', 'Yes. Tastings are led by the family, so we need at least 24 hours’ notice.'],
+    ['Koliko osoba može da dođe?', 'How many people can come?', 'Od 2 do 16 osoba. Za veće grupe pišite nam i napravićemo poseban termin.', 'From 2 to 16. For bigger groups write to us and we will set up a private slot.'],
+    ['Mogu li da dođem kolima?', 'Can I come by car?', 'Imamo besplatan parking. Vozaču nudimo degustaciju za poneti i domaći sok od grožđa.', 'There is free parking. Drivers get a take-away tasting and homemade grape juice.'],
+    ['Da li je pogodno za decu?', 'Is it child-friendly?', 'Deca su dobrodošla – ima soka od grožđa i mesta za igru u dvorištu.', 'Children are welcome – there is grape juice and room to play in the yard.'],
+    ['Šta ako imam alergiju ili sam vegan?', 'Allergies or vegan?', 'Napišite u napomeni i prilagodićemo platu ili večeru.', 'Add it in the notes and we will adapt the platter or dinner.'],
+    ['Mogu li da kupim vino na licu mesta?', 'Can I buy wine on site?', 'Naravno, sa 10 % popusta na dan degustacije. Primamo kartice.', 'Of course, with 10 % off on the day of your tasting. Cards accepted.']
+  ];
+  times = ['12:00', '14:00', '16:00', '18:00', '19:30'];
+  componentDidMount() {
+    const pk = (new URLSearchParams(location.search)).get('paket');
+    if (pk && this.packData.some(p => p.id === pk)) this.setState(s => ({ f: { ...s.f, paket: pk } }));
+    (window.KamenikQ = window.KamenikQ || []).push(K => {
+      this.K = K;
+      this.setState({ lang: K.lang() });
+      this.off = K.onLang(l => this.setState({ lang: l }));
+      K.ready(() => { K.applyLang(); K.scan(); if (location.hash === '#rezervacija' || pk) setTimeout(() => K.scrollTo('#rezervacija'), 120); });
+    });
+  }
+  componentWillUnmount() { this.off && this.off(); }
+  componentDidUpdate() { const ps = this._ps || {}; this._ps = { ...this.state }; this._cdu(ps); }
+  _cdu(ps) {
+    window.Kamenik && window.Kamenik.applyLang();
+    if (ps.status !== 'done' && this.state.status === 'done') requestAnimationFrame(() => this.K && this.K.clink(document.querySelector('[data-clink]')));
+  }
+  set(k, v) { this.setState(s => ({ f: { ...s.f, [k]: v }, err: { ...s.err, [k]: '' } })); }
+  validate() {
+    const f = this.state.f, en = this.state.lang === 'en', e = {};
+    if (!f.paket) e.paket = en ? 'Choose a package.' : 'Izaberite paket.';
+    if (!f.datum) e.datum = en ? 'Choose a date.' : 'Izaberite datum.';
+    if (f.ime.trim().length < 2) e.ime = en ? 'Enter your name.' : 'Upišite ime.';
+    if (f.tel.replace(/\D/g, '').length < 8) e.tel = en ? 'Enter a valid phone number.' : 'Upišite ispravan broj telefona.';
+    if (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) e.email = en ? 'Check your email.' : 'Proverite e-mail.';
+    return e;
+  }
+  async submit(ev) {
+    ev.preventDefault();
+    const e = this.validate();
+    if (Object.keys(e).length) { this.setState({ err: e }); return; }
+    const f = this.state.f, p = this.packData.find(x => x.id === f.paket);
+    this.setState({ status: 'sending' });
+    try {
+      const r = await this.K.send({ subject: `Degustacija – ${p.name[0]} – ${f.datum} – ${f.osobe}`, paket: p.name[0], datum: f.datum, vreme: f.vreme, osobe: f.osobe, ime: f.ime, telefon: f.tel, email: f.email, napomena: f.nap });
+      this.setState({ status: r && r.success ? 'done' : 'error' });
+    } catch (err) { this.setState({ status: 'error' }); }
+  }
+  renderVals() {
+    const s = this.state, en = s.lang === 'en', i = en ? 1 : 0, f = s.f;
+    const fmt = n => n.toLocaleString('de-DE');
+    const d = new Date(); d.setDate(d.getDate() + 1);
+    const err = { paket: s.err.paket || '', datum: s.err.datum || '', ime: s.err.ime || '', tel: s.err.tel || '', email: s.err.email || '' };
+    const bd = {}, inv = {}, on = {};
+    ['datum', 'ime', 'tel', 'email'].forEach(k => { bd[k] = err[k] ? '#6B2236' : 'rgba(31,26,23,.14)'; inv[k] = err[k] ? 'true' : 'false'; });
+    ['datum', 'ime', 'tel', 'email', 'nap'].forEach(k => { on[k] = e => this.set(k, e.target.value); });
+    const pick = id => { this.set('paket', id); this.K && this.K.scrollTo('#rezervacija'); };
+    const p = this.packData.find(x => x.id === f.paket);
+    return {
+      packs: this.packData.map((x, k) => ({ name: x.name[i], meta: x.meta[i], inc: x.inc.map(t => t[i]), img: `uploads/kamenik_slike/${x.img}.webp`, alt: x.alt[i], priceL: fmt(x.price), per: en ? 'RSD / person' : 'RSD / osoba',
+        bg: x.dark ? '#4A1626' : '#E9E4DA', fg: x.dark ? '#F6F3EE' : '#1F1A17', acc: x.dark ? '#D9B45B' : '#5E6B3A', price: x.dark ? '#D9B45B' : '#A8822F', line: x.dark ? 'rgba(246,243,238,.16)' : 'rgba(31,26,23,.12)',
+        btnBg: x.dark ? '#D9B45B' : '#4A1626', btnFg: x.dark ? '#1F1A17' : '#F6F3EE', btn: en ? 'Choose' : 'Izaberi', r: k === 1 ? '999px 999px 18px 18px' : '18px', choose: () => pick(x.id) })),
+      included: this.incData.map((u, k) => ({ n: '0' + (k + 1), t: u[i], d: u[2 + i] })),
+      faq: this.faqData.map((q, k) => ({ q: q[i], a: q[2 + i], open: s.open === k, exp: s.open === k ? 'true' : 'false', rot: s.open === k ? '45deg' : '0deg', toggle: () => this.setState({ open: s.open === k ? -1 : k }) })),
+      packOpts: this.packData.map(x => ({ name: x.name[i], priceL: fmt(x.price), on: f.paket === x.id ? 'true' : 'false', pick: () => this.set('paket', x.id),
+        bg: f.paket === x.id ? '#4A1626' : '#E9E4DA', fg: f.paket === x.id ? '#F6F3EE' : '#1F1A17', bd: f.paket === x.id ? '#4A1626' : (err.paket ? '#6B2236' : 'transparent') })),
+      times: this.times.map(t => ({ t, on: f.vreme === t ? 'true' : 'false', pick: () => this.set('vreme', t), bg: f.vreme === t ? '#D9B45B' : 'transparent', fg: '#1F1A17', bd: f.vreme === t ? '#D9B45B' : 'rgba(31,26,23,.2)' })),
+      f, err, bd, inv, on, today: d.toISOString().slice(0, 10),
+      dec: () => this.set('osobe', Math.max(2, f.osobe - 1)), inc: () => this.set('osobe', Math.min(16, f.osobe + 1)),
+      submit: e => this.submit(e),
+      sending: s.status === 'sending', sendOp: s.status === 'sending' ? .6 : 1,
+      sendLabel: s.status === 'sending' ? (en ? 'Sending…' : 'Šaljem…') : (en ? 'Send reservation' : 'Pošalji rezervaciju'),
+      failed: s.status === 'error', failMsg: en ? 'Something went wrong. Please call us at +381 64 123 4567.' : 'Nešto nije u redu. Pozovite nas na +381 64 123 4567.',
+      showForm: s.status !== 'done', done: s.status === 'done',
+      okTitle: en ? 'Cheers!' : 'Živeli!', okText: en ? 'We will get back to you today.' : 'Javljamo vam se u toku dana.',
+      summary: p ? `${p.name[i]} · ${f.datum} · ${f.vreme} · ${f.osobe} ${en ? 'guests' : 'osobe'}` : '',
+      again: en ? 'New reservation' : 'Nova rezervacija',
+      reset: () => this.setState(st => ({ status: 'idle', f: { ...st.f, ime: st.f.ime, nap: '' } }))
+    };
+  }
+}
+</script>
+</body>
+</html>

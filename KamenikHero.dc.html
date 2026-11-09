@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section data-theme="dark" style="position:relative;height:{{ h }};min-height:540px;overflow:hidden;background:#4A1626;color:#F6F3EE;display:flex;align-items:flex-end;font-family:Urbanist,system-ui,sans-serif">
+  <img data-hh-img="" src="{{ src }}" width="{{ w }}" height="{{ hh }}" alt="{{ alt }}" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ pos }};display:block">
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(74,22,38,.95) 0%,rgba(74,22,38,.62) 38%,rgba(74,22,38,.2) 70%,rgba(31,26,23,.4) 100%)"></div>
+  <div style="position:relative;width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(44px,7vh,88px);box-sizing:border-box">
+    <nav aria-label="Breadcrumb" data-hh="" style="margin:0 0 22px;font-size:14px;color:rgba(246,243,238,.78)">
+      <ol style="display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0">
+        <li><a href="index.html" data-page="Kamenik" style="color:rgba(246,243,238,.78)">{{ home }}</a></li>
+        <li aria-hidden="true" style="color:#D9B45B">/</li>
+        <li aria-current="page" style="color:#F6F3EE">{{ crumbL }}</li>
+      </ol>
+    </nav>
+    <h1 style="margin:0;max-width:15ch;font-family:Bellefair,serif;font-weight:400;font-size:clamp(50px,7.6vw,120px);line-height:.95;letter-spacing:-.01em;text-wrap:balance">
+      <sc-for list="{{ words }}" as="w" hint-placeholder-count="3"><span data-hh="" style="display:inline-block;color:{{ w.c }}">{{ w.t }}</span> </sc-for>
+    </h1>
+    <p data-hh="" style="margin:26px 0 0;max-width:50ch;font-size:clamp(17px,1.4vw,20px);color:rgba(246,243,238,.88)">{{ subL }}</p>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:700},&quot;image&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/kamenik_slike/hero-vinograd.webp&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;w&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2000,&quot;tsType&quot;:&quot;number&quot;},&quot;hh&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1334,&quot;tsType&quot;:&quot;number&quot;},&quot;alt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;pos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;50% 50%&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;height&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;78svh&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;crumb&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Stranica&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;crumbEn&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Naslov stranice&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;titleEn&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page title&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;sub&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subEn&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gold&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'sr' };
+  componentDidMount() {
+    (window.KamenikQ = window.KamenikQ || []).push(K => {
+      this.setState({ lang: K.lang() });
+      this.off = K.onLang(l => this.setState({ lang: l }));
+      K.ready(() => {
+        const g = window.gsap; if (!g || K.reduced) return;
+        const img = document.querySelector('[data-hh-img]');
+        if (img) g.fromTo(img, { scale: 1.1 }, { scale: 1, duration: 1.6, ease: K.EO });
+        K.words(document.querySelectorAll('[data-hh]'), .15);
+      });
+    });
+  }
+  componentWillUnmount() { this.off && this.off(); }
+  renderVals() {
+    const p = this.props, en = this.state.lang === 'en';
+    const title = (en ? p.titleEn : p.title) || p.title || '';
+    const ws = title.split(' '), gold = +(p.gold ?? 1);
+    const src = p.image || 'uploads/kamenik_slike/hero-vinograd.webp';
+    return {
+      src, srcset: src + ' ' + (p.w || 2000) + 'w', w: p.w || 2000, hh: p.hh || 1334, alt: p.alt || '', pos: p.pos || '50% 50%',
+      h: p.height || '78svh',
+      home: en ? 'Home' : 'Početna', crumbL: (en ? p.crumbEn : p.crumb) || p.crumb || '',
+      subL: (en ? p.subEn : p.sub) || p.sub || '',
+      words: ws.map((t, i) => ({ t, c: i >= ws.length - gold ? '#D9B45B' : '#F6F3EE' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

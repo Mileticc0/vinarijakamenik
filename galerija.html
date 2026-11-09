@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Galerija – vinograd, podrum, degustacije | Vinarija Kamenik</title>
+<meta name="description" content="Fotografije Vinarije Kamenik: vinograd kroz godišnja doba, kameni podrum, degustacije i događaji na južnim padinama Fruške gore.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4A1626">
+<link rel="canonical" href="https://kamenik.rs/galerija.html">
+<link rel="alternate" hreflang="sr" href="https://kamenik.rs/galerija.html">
+<link rel="alternate" hreflang="en" href="https://kamenik.rs/en/galerija.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
+<meta property="og:title" content="Galerija – Vinarija Kamenik"><meta property="og:description" content="Vinograd, podrum, degustacije i događaji.">
+<meta property="og:url" content="https://kamenik.rs/galerija.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/podrum-tunel.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Galerija – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/podrum-tunel.webp">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="uploads/kamenik_slike/podrum-tunel.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer="" src="kamenik-core.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Početna","item":"https://kamenik.rs/"},{"@type":"ListItem","position":2,"name":"Galerija","item":"https://kamenik.rs/galerija.html"}]}</script>
+<style>
+html{-webkit-text-size-adjust:100%}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:#F6F3EE;color:#1F1A17;font-family:'Urbanist',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+a{color:#4A1626;text-decoration:none}a:hover{color:#5E6B3A}img{max-width:100%}::selection{background:#D9B45B;color:#1F1A17}:focus-visible{outline:2px solid #D9B45B;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+<dc-import name="KamenikNav" active="galerija" hint-size="100%,0px"></dc-import>
+<main id="main">
+<dc-import name="KamenikHero" image="uploads/kamenik_slike/podrum-tunel.webp" w="2000" hh="1334" alt="Svod kamenog podruma sa velikim hrastovim buradima" crumb="Galerija" crumb-en="Gallery" title="Kamenik u kadrovima" title-en="Kamenik in frames" gold="1" sub="Godina na padini, u podrumu i za stolom – onako kako je mi vidimo." sub-en="A year on the slope, in the cellar and at the table – the way we see it." height="64svh" hint-size="100%,64svh"></dc-import>
+
+<section aria-labelledby="gal-h" style="background:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,48px) clamp(88px,11vw,150px);box-sizing:border-box">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-bottom:clamp(28px,4vw,44px)">
+      <h2 id="gal-h" style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:clamp(32px,3.4vw,48px);line-height:1.05">{{ countL }}</h2>
+      <div role="group" aria-label="Filter galerije" style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{ f.on }}" onClick="{{ f.onClick }}" style="height:44px;padding:0 18px;border-radius:999px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.color }};font:600 14px/1 Urbanist,sans-serif;cursor:pointer" style-active="transform:scale(0.97)">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="columns:3 150px;column-gap:{{ gap }}">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="9">
+        <button type="button" onClick="{{ it.open }}" aria-label="{{ it.aria }}" style="display:block;width:100%;margin:0 0 {{ gap }};padding:0;border:0;background:#E9E4DA;border-radius:{{ it.r }};overflow:hidden;break-inside:avoid;cursor:zoom-in" style-active="transform:scale(0.99)">
+          <img src="{{ it.src }}" width="{{ it.w }}" height="{{ it.h }}" alt="{{ it.alt }}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+        </button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="KamenikFooter" hint-size="100%,900px"></dc-import>
+
+<div role="dialog" aria-modal="true" aria-label="Pregled fotografije" aria-hidden="{{ lbHidden }}" style="position:fixed;inset:0;z-index:150;background:rgba(31,12,18,.96);color:#F6F3EE;opacity:{{ lbOp }};visibility:{{ lbVis }};transition:{{ lbTr }};display:flex;flex-direction:column;font-family:Urbanist,sans-serif">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px 8px">
+    <p aria-live="polite" style="margin:0;font-family:Bellefair,serif;font-size:22px;letter-spacing:.06em;color:#D9B45B">{{ counter }}</p>
+    <button type="button" onClick="{{ closeLb }}" aria-label="Zatvori" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(246,243,238,.25);background:transparent;color:#F6F3EE;cursor:pointer;display:flex;align-items:center;justify-content:center" style-active="transform:scale(0.97)"><svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"></path></svg></button>
+  </div>
+  <div onPointerDown="{{ swDown }}" onPointerUp="{{ swUp }}" onPointerCancel="{{ swCancel }}" style="position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,6vw,96px);touch-action:pan-y;user-select:none">
+    <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}"><img ref="{{ lbImg }}" alt="{{ cur.alt }}" width="{{ cur.w }}" height="{{ cur.h }}" draggable="false" style="display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:18px"></sc-if>
+    <button type="button" onClick="{{ prev }}" aria-label="Prethodna fotografija" style="position:absolute;left:clamp(8px,2vw,24px);top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;border:0;background:rgba(246,243,238,.14);color:#F6F3EE;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)" style-active="transform:scale(0.97)"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4"></path></svg></button>
+    <button type="button" onClick="{{ next }}" aria-label="Sledeća fotografija" style="position:absolute;right:clamp(8px,2vw,24px);top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;border:0;background:rgba(246,243,238,.14);color:#F6F3EE;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)" style-active="transform:scale(0.97)"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></button>
+  </div>
+  <p style="margin:0;padding:10px 20px calc(env(safe-area-inset-bottom,0px) + 18px);text-align:center;font-size:15px;color:rgba(246,243,238,.8)">{{ cur.alt }}</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'sr', cat: 'sve', idx: -1, narrow: false };
+  photos = [
+    ['hero-vinograd', 'v', 2000, 1334, 'Prolećni vinograd u zalasku', 'Spring vineyard at sunset'],
+    ['podrum-tunel', 'p', 2000, 1334, 'Svod podruma sa velikim buradima', 'Cellar vault with large casks'],
+    ['degustacija-sto', 'd', 2000, 1125, 'Točenje belog vina za stolom', 'Pouring white wine at the table'],
+    ['vinograd-brda', 'v', 1500, 2000, 'Jesenji redovi niz brda', 'Autumn rows down the hills'],
+    ['vecera', 'e', 2000, 1334, 'Večera uz sveće i zdravica', 'Candlelit dinner and a toast'],
+    ['vinar', 'p', 1333, 2000, 'Vinar proverava boju vina', 'Winemaker checking the colour'],
+    ['grozd-sunce', 'v', 2000, 1329, 'Zreli grozdovi na suncu', 'Ripe bunches in the sun'],
+    ['burad', 'p', 2000, 1333, 'Zid hrastovih bačvi', 'A wall of oak barrels'],
+    ['tocenje', 'd', 1333, 2000, 'Točenje rosea u čašu', 'Pouring rosé'],
+    ['berba-ruke', 'e', 2000, 1333, 'Grožđe u rukama na berbi sa porodicom', 'Grapes in hand at the family harvest'],
+    ['vinograd-leto', 'v', 1333, 2000, 'Letnji red vinograda', 'A summer row'],
+    ['podrum', 'p', 1329, 2000, 'Kameni hodnik podruma', 'The stone cellar corridor'],
+    ['sommelier', 'd', 2000, 1333, 'Sipanje tamjanike na otvorenom', 'Pouring Tamjanika outdoors'],
+    ['degustacija-zdravica', 'e', 2000, 1333, 'Gosti nazdravljaju', 'Guests raising a toast'],
+    ['vinograd-lisce', 'v', 2000, 1334, 'Mlado lišće u zalasku', 'Young leaves at sunset'],
+    ['boce', 'p', 1333, 2000, 'Boce crvenog vina', 'Bottles of red wine'],
+    ['plata-sir', 'd', 2000, 1335, 'Plata sireva uz crno vino', 'Cheese platter with red wine'],
+    ['berba-makaze', 'e', 2000, 1125, 'Makaze i grozd na berbi', 'Shears and a bunch at harvest'],
+    ['vinograd-zalazak', 'v', 2000, 1334, 'Loza i brda u zalasku', 'Vines and hills at sunset'],
+    ['podrum-lukovi', 'p', 2000, 1334, 'Zidani lukovi podruma', 'Brick arches of the cellar'],
+    ['casa-vinograd', 'd', 2000, 1333, 'Čaša crnog vina iznad vinograda', 'A glass of red above the vineyard'],
+    ['vinograd-zima-2', 'v', 2000, 1334, 'Zimski vinograd pod oblacima', 'Winter vineyard under clouds'],
+    ['muljanje', 'p', 1331, 2000, 'Muljanje grožđa rukama', 'Crushing grapes by hand'],
+    ['boca-casa', 'p', 1600, 2000, 'Boca i čaša u tami podruma', 'Bottle and glass in the dark cellar'],
+    ['vinograd-prolece', 'v', 2000, 1715, 'Vinograd u rano proleće', 'The vineyard in early spring'],
+    ['vinograd-zima', 'v', 2000, 1334, 'Orezani čokoti u zimskom zalasku', 'Pruned vines at a winter sunset']
+  ];
+  cats = [['sve', 'Sve', 'All'], ['v', 'Vinograd', 'Vineyard'], ['p', 'Podrum', 'Cellar'], ['d', 'Degustacije', 'Tastings'], ['e', 'Događaji', 'Events']];
+  componentDidMount() {
+    this.mq = matchMedia('(max-width: 699px)'); this.onMq = () => this.setState({ narrow: this.mq.matches }); this.onMq(); this.mq.addEventListener('change', this.onMq);
+    this.onKey = e => {
+      if (this.state.idx < 0) return;
+      if (e.key === 'Escape') this.closeLb();
+      if (e.key === 'ArrowRight') this.go(1);
+      if (e.key === 'ArrowLeft') this.go(-1);
+    };
+    window.addEventListener('keydown', this.onKey);
+    (window.KamenikQ = window.KamenikQ || []).push(K => {
+      this.K = K;
+      this.setState({ lang: K.lang() });
+      this.off = K.onLang(l => this.setState({ lang: l }));
+      K.ready(() => { K.applyLang(); K.scan(); });
+    });
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); this.off && this.off(); }
+  componentDidUpdate() { window.Kamenik && window.Kamenik.applyLang(); }
+  list() { return this.photos.filter(p => this.state.cat === 'sve' || p[1] === this.state.cat); }
+  preload(i) { const l = this.list(); [i - 1, i + 1].forEach(k => { const p = l[(k + l.length) % l.length]; if (p) { const im = new Image(); im.src = `uploads/kamenik_slike/${p[0]}.webp`; } }); }
+  open(i) { this.lastFocus = document.activeElement; this.setState({ idx: i }); this.preload(i); this.K && this.K.lock(true); }
+  closeLb() { this.setState({ idx: -1 }); this.K && this.K.lock(false); this.lastFocus && this.lastFocus.focus && this.lastFocus.focus({ preventScroll: true }); }
+  go(d) { const n = this.list().length; const i = (this.state.idx + d + n) % n; this.setState({ idx: i }); this.preload(i); }
+  renderVals() {
+    const s = this.state, en = s.lang === 'en', l = this.list();
+    const items = l.map((p, i) => ({ src: `uploads/kamenik_slike/${p[0]}.webp`, w: p[2], h: p[3], alt: en ? p[5] : p[4], aria: (en ? 'Open photo: ' : 'Otvori fotografiju: ') + (en ? p[5] : p[4]),
+      r: i % 5 === 1 ? (s.narrow ? '999px 999px 14px 14px' : '999px 999px 18px 18px') : (s.narrow ? '14px' : '18px'), open: () => this.open(i) }));
+    const c = l[Math.max(0, s.idx)] || this.photos[0], open = s.idx >= 0;
+    return {
+      filters: this.cats.map(k => ({ label: en ? k[2] : k[1], on: s.cat === k[0] ? 'true' : 'false', onClick: () => this.setState({ cat: k[0], idx: -1 }),
+        bg: s.cat === k[0] ? '#4A1626' : 'transparent', color: s.cat === k[0] ? '#F6F3EE' : '#1F1A17', bd: s.cat === k[0] ? '#4A1626' : 'rgba(31,26,23,.2)' })),
+      gap: s.narrow ? '10px' : '18px', items, countL: `${l.length} ${en ? 'photos' : (l.length % 10 >= 2 && l.length % 10 <= 4 && (l.length < 10 || l.length > 20) ? 'fotografije' : 'fotografija')}`,
+      cur: { src: `uploads/kamenik_slike/${c[0]}.webp`, w: c[2], h: c[3], alt: en ? c[5] : c[4] },
+      counter: `${Math.max(0, s.idx) + 1} / ${l.length}`,
+      lbImg: el => { if (el && open) { const u = `uploads/kamenik_slike/${c[0]}.webp`; if (el.getAttribute('src') !== u) el.setAttribute('src', u); } },
+      lbOpen: open, lbHidden: open ? 'false' : 'true', lbOp: open ? 1 : 0, lbVis: open ? 'visible' : 'hidden',
+      lbTr: open ? 'opacity 200ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 0s' : 'opacity 200ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 200ms',
+      closeLb: () => this.closeLb(), prev: () => this.go(-1), next: () => this.go(1),
+      swDown: e => { this.sx = e.clientX; this.sy = e.clientY; },
+      swUp: e => { if (this.sx == null) return; const dx = e.clientX - this.sx, dy = e.clientY - this.sy; this.sx = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) this.go(dx < 0 ? 1 : -1); },
+      swCancel: () => { this.sx = null; }
+    };
+  }
+}
+</script>
+</body>
+</html>

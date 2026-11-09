@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Vinograd – 12 ha na Fruškoj gori | Vinarija Kamenik</title>
+<meta name="description" content="Dvanaest hektara na južnim padinama Fruške gore: šest parcela, krečnjak i les, 2.100 sunčanih sati. Istražite mapu vinograda i godišnja doba.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4A1626">
+<link rel="canonical" href="https://kamenik.rs/vinograd.html">
+<link rel="alternate" hreflang="sr" href="https://kamenik.rs/vinograd.html">
+<link rel="alternate" hreflang="en" href="https://kamenik.rs/en/vinograd.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Vinarija Kamenik">
+<meta property="og:title" content="Vinograd – Vinarija Kamenik"><meta property="og:description" content="Šest parcela, krečnjak i les, južne padine Fruške gore.">
+<meta property="og:url" content="https://kamenik.rs/vinograd.html"><meta property="og:image" content="https://kamenik.rs/uploads/kamenik_slike/vinograd-brda.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vinograd – Vinarija Kamenik"><meta name="twitter:image" content="https://kamenik.rs/uploads/kamenik_slike/vinograd-brda.webp">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="uploads/kamenik_slike/vinograd-brda.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&amp;family=Urbanist:wght@400;500;600&amp;display=swap">
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer="" src="kamenik-core.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Početna","item":"https://kamenik.rs/"},{"@type":"ListItem","position":2,"name":"Vinograd","item":"https://kamenik.rs/vinograd.html"}]}</script>
+<style>
+html{-webkit-text-size-adjust:100%}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:#F6F3EE;color:#1F1A17;font-family:'Urbanist',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+a{color:#4A1626;text-decoration:none}a:hover{color:#5E6B3A}img{max-width:100%}::selection{background:#D9B45B;color:#1F1A17}:focus-visible{outline:2px solid #D9B45B;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition-duration:1ms!important}}
+</style>
+</helmet>
+<dc-import name="KamenikNav" active="vinograd" hint-size="100%,0px"></dc-import>
+<main id="main">
+<dc-import name="KamenikHero" image="uploads/kamenik_slike/vinograd-brda.webp" w="1500" hh="2000" pos="50% 62%" alt="Jesenji redovi vinograda na padini u zalasku sunca" crumb="Vinograd" crumb-en="Vineyard" title="Dvanaest hektara kamena i sunca" title-en="Twelve hectares of stone and sun" gold="3" sub="Južna padina, 180 do 260 metara iznad Dunava. Šest parcela, šest sorti i jedna godina koja se ponavlja već 26 puta." sub-en="A south-facing slope, 180 to 260 metres above the Danube. Six plots, six varieties and one year repeated 26 times." hint-size="100%,78svh"></dc-import>
+
+<section aria-labelledby="sez-h" style="background:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(28px,4vw,44px)">
+      <div>
+        <p style="display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5E6B3A"><span data-en="The vineyard through the year">Vinograd kroz godinu</span></p>
+        <h2 id="sez-h" data-rv-h="" style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5.4vw,80px);line-height:1.02" data-en="Drag through the seasons">Prevucite kroz godišnja doba</h2>
+      </div>
+      <div role="tablist" aria-label="Godišnja doba" style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ caps }}" as="c" hint-placeholder-count="4">
+          <button type="button" role="tab" aria-selected="{{ c.sel }}" onClick="{{ c.onClick }}" style="height:44px;padding:0 20px;border-radius:999px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.color }};font:600 14px/1 Urbanist,sans-serif;cursor:pointer" style-active="transform:scale(0.97)">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div ref="{{ stageRef }}" onPointerDown="{{ onStageDown }}" onPointerMove="{{ onStageMove }}" onPointerUp="{{ onStageUp }}" onPointerCancel="{{ onStageUp }}" style="position:relative;aspect-ratio:{{ stageRatio }};border-radius:18px;overflow:hidden;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;background:#3A1220">
+      <sc-for list="{{ leftImgs }}" as="im" hint-placeholder-count="1">
+        <img src="{{ im.src }}" alt="{{ im.alt }}" width="2000" height="1334" loading="lazy" decoding="async" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ im.op }};transition:opacity 300ms cubic-bezier(0.23,1,0.32,1)">
+      </sc-for>
+      <div ref="{{ rightRef }}" style="position:absolute;inset:0;clip-path:inset(0 0 0 50%)">
+        <sc-for list="{{ rightImgs }}" as="im" hint-placeholder-count="1">
+          <img src="{{ im.src }}" alt="{{ im.alt }}" width="2000" height="1334" loading="lazy" decoding="async" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ im.op }};transition:opacity 300ms cubic-bezier(0.23,1,0.32,1)">
+        </sc-for>
+      </div>
+      <span style="position:absolute;left:16px;top:16px;height:34px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;background:rgba(74,22,38,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:14px;font-weight:600;color:#F6F3EE;pointer-events:none">{{ labelL }}</span>
+      <span style="position:absolute;right:16px;top:16px;height:34px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;background:rgba(74,22,38,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:14px;font-weight:600;color:#F6F3EE;pointer-events:none">{{ labelR }}</span>
+      <div ref="{{ divRef }}" role="slider" tabindex="0" aria-label="Razdelnik godišnjih doba" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" onKeyDown="{{ onDivKey }}" style="position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#D9B45B">
+        <span style="position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:#D9B45B;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(31,26,23,.35)"><svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="#1F1A17" stroke-width="1.6" aria-hidden="true"><path d="M6 2L1 7l5 5M16 2l5 5-5 5"></path></svg></span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px 48px;margin-top:36px">
+      <div>
+        <h3 style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:clamp(32px,3vw,44px);line-height:1.05;color:#4A1626">{{ sTitle }}</h3>
+        <p style="margin:12px 0 0;max-width:52ch;color:rgba(31,26,23,.84)">{{ sDesc }}</p>
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ tasks }}" as="t" hint-placeholder-count="3">
+          <li style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(31,26,23,.1)"><span style="font-family:Bellefair,serif;font-size:20px;color:#A8822F">{{ t.n }}</span><span>{{ t.t }}</span></li>
+        </sc-for>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="mapa" aria-labelledby="map-h" style="background:#E9E4DA">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box">
+    <div style="margin-bottom:clamp(32px,4vw,52px)">
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5E6B3A" data-en="Vineyard map">Mapa vinograda</p>
+      <h2 id="map-h" data-rv-h="" style="margin:0;max-width:18ch;font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5.4vw,80px);line-height:1.02" data-en="Six plots on one slope">Šest parcela na jednoj padini</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;align-items:stretch">
+      <div style="grid-column:span {{ mapSpan }};border-radius:26px;background:#F6F3EE;padding:clamp(12px,2vw,24px);box-sizing:border-box">
+        <div style="position:relative"><svg viewBox="0 0 800 540" style="display:block;width:100%;height:auto" role="group" aria-label="Ilustrovana mapa padine sa šest parcela">
+          <g fill="none" stroke="#D9B45B" stroke-width="1" opacity=".45">
+            <path d="M40 70C200 40 420 30 760 46"></path>
+            <path d="M40 150C220 118 450 108 760 124"></path>
+            <path d="M40 232C230 196 470 186 760 204"></path>
+            <path d="M40 316C240 278 480 268 760 288"></path>
+            <path d="M40 400C250 362 490 352 760 372"></path>
+            <path d="M40 482C260 446 500 438 760 458"></path>
+          </g>
+          <g font-family="Urbanist, sans-serif" font-size="11" fill="#A8822F" letter-spacing="1">
+            <text x="44" y="64">260 m</text><text x="44" y="226">230 m</text><text x="44" y="394">200 m</text>
+          </g>
+          <path d="M0 520C160 500 320 528 480 508S700 500 800 512V540H0Z" fill="#E9E4DA"></path>
+          <text x="400" y="532" text-anchor="middle" font-family="Bellefair, serif" font-size="16" fill="#5E6B3A" letter-spacing="3">DUNAV · JUG</text>
+          <g transform="translate(730 80)" fill="none" stroke="#5E6B3A" stroke-width="1.2"><circle r="18"></circle><path d="M0 -12L5 4L0 1L-5 4Z" fill="#5E6B3A"></path></g>
+          <text x="730" y="118" text-anchor="middle" font-family="Urbanist, sans-serif" font-size="11" fill="#5E6B3A">S</text>
+          <sc-for list="{{ parcels }}" as="p" hint-placeholder-count="6">
+            <g role="button" tabindex="0" aria-label="{{ p.aria }}" aria-pressed="{{ p.pressed }}" onMouseEnter="{{ p.onEnter }}" onFocus="{{ p.onEnter }}" onClick="{{ p.onEnter }}" onKeyDown="{{ p.onKey }}" style="cursor:pointer;outline:none">
+              <path d="{{ p.d }}" fill="#F6F3EE" stroke="#D9B45B" stroke-width="{{ p.sw }}"></path>
+              <path d="{{ p.d }}" fill="{{ p.color }}" style="opacity:{{ p.op }};transition:opacity 150ms cubic-bezier(0.23,1,0.32,1)"></path>
+              <g fill="none" stroke="{{ p.rowC }}" stroke-width=".8" opacity=".55" style="pointer-events:none"><path d="{{ p.rows }}"></path></g>
+              <circle cx="{{ p.cx }}" cy="{{ p.cy }}" r="17" fill="#F6F3EE" stroke="#D9B45B" stroke-width="1" style="pointer-events:none"></circle>
+            </g>
+          </sc-for>
+          <g transform="translate(690 470)"><rect x="-14" y="-12" width="28" height="22" rx="3" fill="#4A1626"></rect><path d="M-18 -10L0 -24L18 -10" fill="none" stroke="#4A1626" stroke-width="3"></path></g>
+          <text x="690" y="500" text-anchor="middle" font-family="Urbanist, sans-serif" font-size="12" font-weight="600" fill="#4A1626">PODRUM</text>
+        </svg>
+        <sc-for list="{{ parcels }}" as="p" hint-placeholder-count="6">
+          <span aria-hidden="true" style="position:absolute;left:{{ p.lx }};top:{{ p.ly }};transform:translate(-50%,-50%);font-family:Bellefair,serif;font-size:clamp(13px,2vw,18px);line-height:1;color:#4A1626;pointer-events:none">{{ p.n }}</span>
+        </sc-for></div>
+      </div>
+      <div aria-live="polite" style="border-radius:26px;background:#4A1626;color:#F6F3EE;padding:clamp(28px,3vw,40px);box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:46px;height:46px;border-radius:50%;background:{{ cur.color }};border:1px solid #D9B45B;display:flex;align-items:center;justify-content:center;font-family:Bellefair,serif;font-size:22px;color:{{ cur.numC }}">{{ cur.n }}</span>
+          <p style="margin:0;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#D9B45B">{{ cur.parcelL }}</p>
+        </div>
+        <h3 style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:clamp(38px,3.4vw,52px);line-height:1">{{ cur.name }}</h3>
+        <dl style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0">
+          <div><dt style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D9B45B" data-en="Variety">Sorta</dt><dd style="margin:2px 0 0;font-size:19px">{{ cur.sort }}</dd></div>
+          <div><dt style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D9B45B" data-en="Area">Površina</dt><dd style="margin:2px 0 0;font-size:19px">{{ cur.area }}</dd></div>
+          <div><dt style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D9B45B" data-en="Planted">Godina sadnje</dt><dd style="margin:2px 0 0;font-size:19px">{{ cur.year }}</dd></div>
+          <div><dt style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D9B45B" data-en="Altitude">Nadmorska visina</dt><dd style="margin:2px 0 0;font-size:19px">{{ cur.alt }}</dd></div>
+        </dl>
+        <p style="margin:0;color:rgba(246,243,238,.82)">{{ cur.noteL }}</p>
+        <p style="margin:auto 0 0;font-size:14px;color:rgba(246,243,238,.6)" data-en="Hover, tap or tab through the plots.">Pređite mišem, dodirnite ili prođite tasterom Tab kroz parcele.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="sor-h" style="background:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box">
+    <h2 id="sor-h" data-rv-h="" style="margin:0 0 clamp(40px,5vw,60px);font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5.4vw,80px);line-height:1.02" data-en="Our varieties">Naše sorte</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0 40px">
+      <sc-for list="{{ sorts }}" as="v" hint-placeholder-count="6">
+        <div data-rv-card="" style="display:flex;gap:18px;padding:26px 0;border-top:1px solid rgba(31,26,23,.12)">
+          <span style="width:14px;height:14px;margin-top:12px;flex-shrink:0;border-radius:50%;background:{{ v.color }};border:1px solid #D9B45B"></span>
+          <div>
+            <h3 style="margin:0;font-family:Bellefair,serif;font-weight:400;font-size:30px;line-height:1.15">{{ v.name }} <span style="font-family:Urbanist,sans-serif;font-size:14px;color:#A8822F">{{ v.share }}</span></h3>
+            <p style="margin:6px 0 0;color:rgba(31,26,23,.8)">{{ v.d }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-theme="dark" aria-labelledby="ter-h" style="background:#4A1626;color:#F6F3EE">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(88px,11vw,150px) clamp(20px,4vw,48px);box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,88px);align-items:center">
+    <div>
+      <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#D9B45B" data-en="Terroir &amp; microclimate">Teren i mikroklima</p>
+      <h2 id="ter-h" data-rv-h="" style="margin:0 0 24px;font-family:Bellefair,serif;font-weight:400;font-size:clamp(40px,5vw,76px);line-height:1.02" data-en="Limestone below, the Danube in front">Krečnjak ispod, Dunav ispred</h2>
+      <p style="margin:0 0 40px;max-width:52ch;color:rgba(246,243,238,.84)" data-en="Fruška Gora shelters the slope from the cold northern wind, while the Danube six kilometres south softens frosts and brings cool nights in August. That is where our acidity comes from.">Fruška gora štiti padinu od hladnog severca, a Dunav šest kilometara južnije ublažava mrazeve i donosi sveže avgustovske noći. Odatle naša kiselina.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px">
+        <div><p style="margin:0;font-family:Bellefair,serif;font-size:clamp(40px,4vw,56px);line-height:1;color:#D9B45B"><span data-count="2100">2.100</span></p><p style="margin:6px 0 0;font-size:15px;color:rgba(246,243,238,.8)" data-en="hours of sun a year">sunčanih sati godišnje</p></div>
+        <div><p style="margin:0;font-family:Bellefair,serif;font-size:clamp(40px,4vw,56px);line-height:1;color:#D9B45B"><span data-count="620">620</span> mm</p><p style="margin:6px 0 0;font-size:15px;color:rgba(246,243,238,.8)" data-en="rainfall a year">padavina godišnje</p></div>
+        <div><p style="margin:0;font-family:Bellefair,serif;font-size:clamp(40px,4vw,56px);line-height:1;color:#D9B45B">8–14 %</p><p style="margin:6px 0 0;font-size:15px;color:rgba(246,243,238,.8)" data-en="slope gradient">nagib padine</p></div>
+        <div><p style="margin:0;font-family:Bellefair,serif;font-size:clamp(40px,4vw,56px);line-height:1;color:#D9B45B"><span data-count="6">6</span> km</p><p style="margin:6px 0 0;font-size:15px;color:rgba(246,243,238,.8)" data-en="to the Danube">do Dunava</p></div>
+      </div>
+    </div>
+    <div data-rv-img="" style="aspect-ratio:4/5;border-radius:999px 999px 18px 18px;overflow:hidden"><img data-px="" src="uploads/kamenik_slike/vinograd-zalazak.webp" width="2000" height="1334" alt="Loza u zalasku sa brdima u pozadini" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+</section>
+</main>
+<dc-import name="KamenikFooter" hint-size="100%,900px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'sr', narrow: false, season: 0, parcel: 0 };
+  stageRef = React.createRef(); rightRef = React.createRef(); divRef = React.createRef();
+  seasons = [
+    { sr: 'Proleće', en: 'Spring', l: 'vinograd-prolece', r: 'vinograd-lisce', la: ['Mart', 'March'], lb: ['Maj', 'May'],
+      t: ['Vinograd se budi', 'The vineyard wakes up'], d: ['Krajem marta kreću pupoljci. Vezujemo lastare, kosimo travu između redova i noću pazimo na kasne mrazeve.', 'Buds break in late March. We tie the shoots, mow between the rows and keep watch for late frosts.'],
+      k: [['Vezivanje lukova', 'Tying the canes'], ['Košenje međuredova', 'Mowing between rows'], ['Zaštita od mraza', 'Frost watch']] },
+    { sr: 'Leto', en: 'Summer', l: 'vinograd-zalazak', r: 'vinograd-leto', la: ['Jun', 'June'], lb: ['Avgust', 'August'],
+      t: ['Sunce radi za nas', 'The sun does the work'], d: ['Proređujemo lišće da grozdovi dobiju svetlost i vazduh. Zelena berba ostavlja samo najbolje grozdove na čokotu.', 'We thin the leaves so clusters get light and air. A green harvest leaves only the best bunches on each vine.'],
+      k: [['Proređivanje lišća', 'Leaf thinning'], ['Zelena berba', 'Green harvest'], ['Merenje šećera', 'Sugar checks']] },
+    { sr: 'Berba', en: 'Harvest', l: 'grozd-sunce', r: 'vinograd-brda', la: ['Septembar', 'September'], lb: ['Oktobar', 'October'],
+      t: ['Ruke, makaze i zora', 'Hands, shears and dawn'], d: ['Od sredine septembra beremo ručno, u rano jutro, u male gajbe. Svaka parcela ima svoj dan.', 'From mid-September we pick by hand at dawn into small crates. Every plot gets its own day.'],
+      k: [['Ručna berba u zoru', 'Hand-picking at dawn'], ['Selekcija na stolu', 'Sorting table'], ['Muljanje istog dana', 'Same-day crushing']] },
+    { sr: 'Zima', en: 'Winter', l: 'vinograd-zima-2', r: 'vinograd-zima', la: ['Decembar', 'December'], lb: ['Februar', 'February'],
+      t: ['Tišina i rezidba', 'Silence and pruning'], d: ['Loza miruje, a mi orežemo svaki čokot ručno. Manje okaca znači manje grožđa – i više karaktera u čaši.', 'The vines rest while we prune each one by hand. Fewer buds mean less fruit – and more character in the glass.'],
+      k: [['Rezidba', 'Pruning'], ['Popravka stubova i žica', 'Posts and wires'], ['Sv. Trifun – 14. februar', 'St Tryphon – 14 February']] }
+  ];
+  parcelData = [
+    { name: 'Gornji kamen', sort: 'Tamjanika', area: '2,4 ha', year: '1998', alt: '250 m', color: '#D9B45B', d: 'M120 110L330 80L360 190L150 225Z', cx: 240, cy: 152,
+      note: ['Prva loza na padini. Najplići sloj zemlje, najviše kamena – i najintenzivnija aroma.', 'The first vines on the slope. The shallowest soil, the most stone – and the most intense aroma.'] },
+    { name: 'Bagremar', sort: 'Grašac', area: '2,1 ha', year: '2001', alt: '225 m', color: '#8E9A62', d: 'M150 240L365 205L395 320L175 360Z', cx: 272, cy: 283,
+      note: ['Duboki les okružen bagremom. Noći su ovde najhladnije, pa grašac ostaje svež.', 'Deep loess ringed by acacia. Nights here are the coolest, so Grašac stays fresh.'] },
+    { name: 'Vrh', sort: 'Rajnski rizling', area: '1,6 ha', year: '2014', alt: '260 m', color: '#B9C48A', d: 'M360 70L560 60L590 165L385 185Z', cx: 474, cy: 122,
+      note: ['Najviša tačka imanja, stalno provetrena. Koreni idu kroz pukotine krečnjaka.', 'The highest point of the estate, always breezy. Roots reach down through cracks in the limestone.'] },
+    { name: 'Ruža', sort: 'Frankovka (rose)', area: '1,5 ha', year: '2011', alt: '205 m', color: '#D99A8C', d: 'M425 335L635 318L670 425L455 445Z', cx: 546, cy: 382,
+      note: ['Ime je dobila po ružama na kraju svakog reda – prvim upozorenjem na bolest.', 'Named after the roses at the end of each row – the first warning sign of disease.'] },
+    { name: 'Stara kosa', sort: 'Frankovka', area: '2,6 ha', year: '2003', alt: '195 m', color: '#6B2236', d: 'M180 378L400 338L430 450L205 480Z', cx: 304, cy: 414,
+      note: ['Najstariji crveni zasad. Topla, zaklonjena kosa daje sočnu, punu frankovku.', 'Our oldest red planting. A warm, sheltered slope that gives a juicy, full Frankovka.'] },
+    { name: 'Rezerva', sort: 'Kaberne sovinjon', area: '1,8 ha', year: '2014', alt: '215 m', color: '#4A1626', d: 'M390 200L595 182L630 300L420 318Z', cx: 508, cy: 252,
+      note: ['Najtoplija parcela, okrenuta pravo ka jugu. Bere se poslednja, krajem oktobra.', 'The warmest plot, facing due south. Picked last, in late October.'] }
+  ];
+  sortsData = [
+    ['Tamjanika', '20 %', '#D9B45B', 'Aromatična sorta po kojoj nas pamte – miris ruže i muskata.', 'The aromatic grape we are known for – rose and muscat.'],
+    ['Grašac', '18 %', '#8E9A62', 'Sorta Fruške gore: sveža, jabučasta, iskrena.', 'Fruška Gora’s own: fresh, appley, honest.'],
+    ['Rajnski rizling', '13 %', '#B9C48A', 'Visoka kiselina i mineralnost, vino za čekanje.', 'High acidity and minerality, a wine for waiting.'],
+    ['Frankovka', '34 %', '#6B2236', 'Naša crvena kičma – i za rose i za Kamenik Crveni.', 'Our red backbone – for both rosé and Kamenik Red.'],
+    ['Kaberne sovinjon', '15 %', '#4A1626', 'Samo sa najtoplije parcele, samo za Rezervu.', 'Only from the warmest plot, only for the Reserve.']
+  ];
+  componentDidMount() {
+    this.split = .5;
+    this.fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    this.mq = matchMedia('(max-width: 899px)');
+    this.onMq = () => this.setState({ narrow: this.mq.matches });
+    this.onMq(); this.mq.addEventListener('change', this.onMq);
+    (window.KamenikQ = window.KamenikQ || []).push(K => {
+      this.setState({ lang: K.lang() });
+      this.off = K.onLang(l => this.setState({ lang: l }));
+      K.ready(() => { K.applyLang(); K.scan(); });
+    });
+  }
+  componentWillUnmount() { this.mq.removeEventListener('change', this.onMq); this.off && this.off(); }
+  componentDidUpdate() { window.Kamenik && window.Kamenik.applyLang(); }
+  setSplit(p) {
+    p = Math.max(0, Math.min(1, p)); this.split = p;
+    const r = this.rightRef.current, d = this.divRef.current;
+    if (r) r.style.clipPath = 'inset(0 0 0 ' + (p * 100) + '%)';
+    if (d) { d.style.left = (p * 100) + '%'; d.setAttribute('aria-valuenow', Math.round(p * 100)); }
+  }
+  moveTo(e) { const st = this.stageRef.current; if (!st) return; const r = st.getBoundingClientRect(); this.setSplit((e.clientX - r.left) / r.width); }
+  rows(d) {
+    const pts = d.replace(/[MZ]/g, '').split('L').map(s => s.trim().split(/\s+/).map(Number));
+    const [a, b, c, e] = pts; let out = '';
+    for (let i = 1; i < 6; i++) { const t = i / 6; const x1 = a[0] + (e[0] - a[0]) * t, y1 = a[1] + (e[1] - a[1]) * t, x2 = b[0] + (c[0] - b[0]) * t, y2 = b[1] + (c[1] - b[1]) * t; out += `M${x1 + 12} ${y1}L${x2 - 12} ${y2}`; }
+    return out;
+  }
+  renderVals() {
+    const s = this.state, en = s.lang === 'en', L = o => (en ? o.en : o.sr), K = a => a[en ? 1 : 0];
+    const se = this.seasons[s.season];
+    const imgs = k => this.seasons.map((x, i) => ({ src: `uploads/kamenik_slike/${x[k]}.webp`, alt: `${L(x)} – ${K(k === 'l' ? x.la : x.lb)}`, op: i === s.season ? 1 : 0 }));
+    const cp = this.parcelData[s.parcel];
+    return {
+      caps: this.seasons.map((x, i) => ({ label: L(x), sel: i === s.season ? 'true' : 'false', onClick: () => this.setState({ season: i }),
+        bg: i === s.season ? '#4A1626' : 'transparent', color: i === s.season ? '#F6F3EE' : '#1F1A17', bd: i === s.season ? '#4A1626' : 'rgba(31,26,23,.2)' })),
+      sTitle: K(se.t), sDesc: K(se.d), labelL: K(se.la), labelR: K(se.lb), leftImgs: imgs('l'), rightImgs: imgs('r'),
+      tasks: se.k.map((t, i) => ({ n: '0' + (i + 1), t: K(t) })),
+      stageRatio: s.narrow ? '4/5' : '16/8',
+      stageRef: this.stageRef, rightRef: this.rightRef, divRef: this.divRef,
+      onStageDown: e => { if (e.button && e.button !== 0) return; this.drag = true; try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {} this.moveTo(e); },
+      onStageMove: e => { if (this.drag) this.moveTo(e); },
+      onStageUp: e => { this.drag = false; try { e.currentTarget.releasePointerCapture(e.pointerId); } catch (err) {} },
+      onDivKey: e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); this.setSplit(this.split + (e.key === 'ArrowLeft' ? -.05 : .05)); } },
+      mapSpan: s.narrow ? 1 : 2,
+      parcels: this.parcelData.map((p, i) => ({ ...p, n: i + 1, lx: (p.cx / 800 * 100) + '%', ly: (p.cy / 540 * 100) + '%', rows: this.rows(p.d), op: s.parcel === i ? .9 : 0, sw: s.parcel === i ? 2 : 1,
+        rowC: s.parcel === i ? '#F6F3EE' : '#D9B45B', pressed: s.parcel === i ? 'true' : 'false',
+        aria: `${en ? 'Plot' : 'Parcela'} ${i + 1}: ${p.name}, ${p.sort}`,
+        onEnter: () => { if (s.parcel !== i) this.setState({ parcel: i }); },
+        onKey: e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.setState({ parcel: i }); } } })),
+      cur: { ...cp, n: s.parcel + 1, parcelL: (en ? 'Plot ' : 'Parcela ') + (s.parcel + 1), noteL: K(cp.note), numC: s.parcel === 0 || s.parcel === 2 || s.parcel === 1 || s.parcel === 3 ? '#1F1A17' : '#F6F3EE' },
+      sorts: this.sortsData.map(v => ({ name: v[0], share: v[1], color: v[2], d: en ? v[4] : v[3] }))
+    };
+  }
+}
+</script>
+</body>
+</html>

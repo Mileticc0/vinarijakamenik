@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header>
+<nav data-nav="" aria-label="Glavna navigacija" style="position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translate(-50%,0);width:min(1240px,calc(100% - 24px));height:64px;box-sizing:border-box;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 8px 0 20px;border-radius:999px;background:var(--nbg,rgba(74,22,38,.55));color:var(--nc,#F6F3EE);border:1px solid var(--nbd,rgba(217,180,91,.25));backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);transition:transform 520ms cubic-bezier(0.77,0,0.175,1),background-color 300ms cubic-bezier(0.23,1,0.32,1),color 300ms cubic-bezier(0.23,1,0.32,1);font-family:Urbanist,system-ui,sans-serif">
+  <a href="index.html" data-page="Kamenik" aria-label="Vinarija Kamenik – početna" style="display:flex;align-items:center;gap:10px;color:inherit;flex-shrink:0">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#D9B45B" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><path d="M16 3c0 3-1 5-3 6"></path><path d="M17 8c3-4 9-4 11-1-2 1-2 4-5 5-2 .5-4.5-1-6-4z"></path><path d="M17 8l8 .5"></path><circle cx="11" cy="12.5" r="2.6"></circle><circle cx="16.4" cy="12.5" r="2.6"></circle><circle cx="8.4" cy="17" r="2.6"></circle><circle cx="13.7" cy="17" r="2.6"></circle><circle cx="19" cy="17" r="2.6"></circle><circle cx="11" cy="21.5" r="2.6"></circle><circle cx="16.4" cy="21.5" r="2.6"></circle><circle cx="13.7" cy="26" r="2.6"></circle></svg>
+    <span style="font-family:Bellefair,serif;font-size:26px;line-height:1;letter-spacing:.02em">Kamenik</span>
+  </a>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:2px;font-size:15px;font-weight:500">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="7">
+        <a href="{{ l.href }}" aria-current="{{ l.cur }}" style="color:inherit;padding:8px 11px;border-radius:999px;background:{{ l.bg }}">{{ l.label }}</a>
+      </sc-for>
+    </div>
+  </sc-if>
+  <div style="display:flex;align-items:center;gap:8px">
+    <button type="button" onClick="{{ toggleLang }}" aria-label="Promeni jezik / Switch language" style="display:flex;align-items:center;gap:6px;height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--nbd,rgba(217,180,91,.25));background:transparent;color:inherit;font:600 13px/1 Urbanist,sans-serif;letter-spacing:.08em;cursor:pointer">
+      <span style="opacity:{{ srOp }}">SR</span><span style="opacity:.4">/</span><span style="opacity:{{ enOp }}">EN</span>
+    </button>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <span data-magnetic="" style="display:inline-flex">
+        <a data-btn="" href="degustacije.html#rezervacija" style="position:relative;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px 0 24px;border-radius:999px;background:#D9B45B;color:#1F1A17;font:600 14px/1 Urbanist,sans-serif;overflow:hidden;transition:transform 160ms cubic-bezier(0.23,1,0.32,1)" style-active="transform:scale(0.97)">
+          <span data-sheen="" style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-120%);pointer-events:none"></span>
+          <span style="position:relative">{{ cta }}</span>
+          <span data-arrow="" style="position:relative;display:inline-flex"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"></path></svg></span>
+        </a>
+      </span>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Meni" aria-expanded="{{ menuExpanded }}" style="position:relative;width:48px;height:48px;border-radius:999px;border:0;background:#D9B45B;cursor:pointer">
+        <span style="position:absolute;left:15px;top:23px;width:18px;height:1.6px;background:#1F1A17;transform:{{ burgerTop }};transition:transform 300ms cubic-bezier(0.23,1,0.32,1)"></span>
+        <span style="position:absolute;left:15px;top:23px;width:18px;height:1.6px;background:#1F1A17;transform:{{ burgerBot }};transition:transform 300ms cubic-bezier(0.23,1,0.32,1)"></span>
+      </button>
+    </sc-if>
+  </div>
+</nav>
+</header>
+<div aria-hidden="{{ menuHidden }}" style="position:fixed;inset:0;z-index:90;background:#4A1626;display:flex;flex-direction:column;justify-content:safe center;overflow-y:auto;overscroll-behavior:contain;padding:calc(env(safe-area-inset-top,0px) + 100px) 28px calc(env(safe-area-inset-bottom,0px) + 32px);box-sizing:border-box;opacity:{{ menuOp }};visibility:{{ menuVis }};transition:{{ menuTr }};font-family:Urbanist,system-ui,sans-serif">
+  <div style="display:flex;flex-direction:column;gap:2px">
+    <sc-for list="{{ mlinks }}" as="l" hint-placeholder-count="8">
+      <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="font-family:Bellefair,serif;font-size:clamp(32px,9.5vw,42px);line-height:1.18;padding:2px 0;color:{{ l.color }};opacity:{{ menuOp }};transform:translateY({{ menuY }});transition:opacity 500ms cubic-bezier(0.23,1,0.32,1) {{ l.d }},transform 500ms cubic-bezier(0.23,1,0.32,1) {{ l.d }}">{{ l.label }}</a>
+    </sc-for>
+  </div>
+  <a href="degustacije.html#rezervacija" onClick="{{ closeMenu }}" style="margin-top:32px;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;background:#D9B45B;color:#1F1A17;font-weight:600;opacity:{{ menuOp }};transform:translateY({{ menuY }});transition:opacity 500ms cubic-bezier(0.23,1,0.32,1) 480ms,transform 500ms cubic-bezier(0.23,1,0.32,1) 480ms">{{ cta }}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;index&quot;,&quot;vina&quot;,&quot;vinograd&quot;,&quot;degustacije&quot;,&quot;dogadjaji&quot;,&quot;galerija&quot;,&quot;price&quot;,&quot;o-nama&quot;,&quot;kontakt&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: false, narrow: false, lang: 'sr' };
+  pages = [
+    ['vina', 'vina.html', 'Vina', 'Wines'], ['vinograd', 'vinograd.html', 'Vinograd', 'Vineyard'],
+    ['degustacije', 'degustacije.html', 'Degustacije', 'Tastings'], ['dogadjaji', 'dogadjaji.html', 'Događaji', 'Events'],
+    ['galerija', 'galerija.html', 'Galerija', 'Gallery'], ['price', 'price.html', 'Priče', 'Stories'],
+    ['o-nama', 'o-nama.html', 'O nama', 'About us'], ['kontakt', 'kontakt.html', 'Kontakt', 'Contact']
+  ];
+  componentDidMount() {
+    this.mq = matchMedia('(max-width: 1059px)');
+    this.onMq = () => this.setState({ narrow: this.mq.matches });
+    this.onMq(); this.mq.addEventListener('change', this.onMq);
+    this.lastY = window.scrollY; this.dark = null;
+    this.onScroll = () => this.scroll();
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onKey = e => { if (e.key === 'Escape' && this.state.menu) this.setState({ menu: false }); };
+    window.addEventListener('keydown', this.onKey);
+    (window.KamenikQ = window.KamenikQ || []).push(K => {
+      this.K = K;
+      this.setState({ lang: K.lang() });
+      this.off = K.onLang(l => this.setState({ lang: l }));
+      K.ready(() => { K.scan(); K.applyLang(); this.scroll(true); });
+    });
+    setTimeout(() => this.scroll(true), 60);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll); window.removeEventListener('keydown', this.onKey);
+    this.mq.removeEventListener('change', this.onMq); this.off && this.off();
+  }
+  componentDidUpdate() { const ps = this._ps || {}; this._ps = { ...this.state }; this._cdu(ps); }
+  _cdu(ps) {
+    if (ps.menu !== this.state.menu) {
+      this.K && this.K.lock(this.state.menu);
+      if (this.state.menu) { this.theme(true); this.show(); } else this.scroll(true);
+    }
+  }
+  nav() { return document.querySelector('[data-nav]'); }
+  show() { const n = this.nav(); if (n) n.style.transform = 'translate(-50%,0)'; this.hidden = false; }
+  theme(dark) {
+    if (dark === this.dark) return; this.dark = dark;
+    const n = this.nav(); if (!n) return;
+    n.style.setProperty('--nbg', dark ? 'rgba(74,22,38,.55)' : 'rgba(246,243,238,.72)');
+    n.style.setProperty('--nc', dark ? '#F6F3EE' : '#1F1A17');
+    n.style.setProperty('--nbd', dark ? 'rgba(217,180,91,.25)' : 'rgba(31,26,23,.1)');
+  }
+  scroll(force) {
+    const y = window.scrollY, n = this.nav();
+    if (!n || (this.state.menu && !force)) { this.lastY = y; return; }
+    if (!this.state.menu) {
+      if (y > this.lastY + 2 && y > 160 && !this.hidden) { this.hidden = true; n.style.transform = 'translate(-50%,-160%)'; }
+      else if ((y < this.lastY - 2 || y <= 160) && this.hidden) this.show();
+    }
+    this.lastY = y;
+    let dark = false;
+    document.querySelectorAll('[data-theme="dark"]').forEach(s => { const r = s.getBoundingClientRect(); if (r.top <= 46 && r.bottom >= 46) dark = true; });
+    this.theme(this.state.menu || dark);
+  }
+  renderVals() {
+    const s = this.state, en = s.lang === 'en', act = this.props.active || '';
+    const links = this.pages.filter(p => p[0] !== 'o-nama').map(p => ({ href: p[1], label: en ? p[3] : p[2], cur: p[0] === act ? 'page' : 'false', bg: p[0] === act ? 'rgba(217,180,91,.22)' : 'transparent' }));
+    const mlinks = [['index', 'index.html', 'Početna', 'Home'], ...this.pages].map((p, i) => ({ href: p[1], label: en ? p[3] : p[2], color: p[0] === act ? '#D9B45B' : '#F6F3EE', d: (60 + i * 45) + 'ms' }));
+    return {
+      wide: !s.narrow, narrow: s.narrow, links, mlinks,
+      cta: en ? 'Book a tasting' : 'Rezerviši degustaciju',
+      srOp: en ? .5 : 1, enOp: en ? 1 : .5,
+      toggleLang: () => { const l = en ? 'sr' : 'en'; this.K ? this.K.setLang(l) : this.setState({ lang: l }); },
+      toggleMenu: () => this.setState({ menu: !s.menu }), closeMenu: () => this.setState({ menu: false }),
+      menuExpanded: s.menu ? 'true' : 'false', menuHidden: s.menu ? 'false' : 'true',
+      menuOp: s.menu ? 1 : 0, menuVis: s.menu ? 'visible' : 'hidden', menuY: s.menu ? '0px' : '36px',
+      menuTr: s.menu ? 'opacity 360ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 0s' : 'opacity 300ms cubic-bezier(0.23,1,0.32,1), visibility 0s linear 300ms',
+      burgerTop: s.menu ? 'translateY(0) rotate(45deg)' : 'translateY(-4px) rotate(0deg)',
+      burgerBot: s.menu ? 'translateY(0) rotate(-45deg)' : 'translateY(4px) rotate(0deg)'
+    };
+  }
+}
+</script>
+</body>
+</html>
